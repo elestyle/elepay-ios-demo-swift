@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>api_server_url_preference</key>
+	<string></string>
+	<key>user_server_order_api</key>
+	<string>https://demo.icart.jp/api/orders</string>
+	<key>test_mode_key</key>
+	<string>Replace the string here to Test Key from elepay console</string>
+	<key>live_mode_key</key>
+	<string>Replace the string here to Live Key from elepay console</string>
+	<key>url_scheme</key>
+	<string>icartexample</string>
+</dict>
+</plist>

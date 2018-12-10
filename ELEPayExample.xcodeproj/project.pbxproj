@@ -1,0 +1,829 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		323ACC2E212D6A62006ED0B7 /* SettingFiles in Resources */ = {isa = PBXBuildFile; fileRef = 323ACC2D212D6A62006ED0B7 /* SettingFiles */; };
+		323ACC31212D6AAF006ED0B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 323ACC30212D6AAF006ED0B7 /* Settings.bundle */; };
+		329D25BF209D8FE90000003B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D25BE209D8FE90000003B /* AppDelegate.swift */; };
+		329D25C1209D8FE90000003B /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D25C0209D8FE90000003B /* PaymentViewController.swift */; };
+		329D25C4209D8FE90000003B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329D25C2209D8FE90000003B /* Main.storyboard */; };
+		329D25C6209D8FEA0000003B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329D25C5209D8FEA0000003B /* Assets.xcassets */; };
+		329D25C9209D8FEA0000003B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329D25C7209D8FEA0000003B /* LaunchScreen.storyboard */; };
+		329D25D4209D8FEA0000003B /* ELEPayExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D25D3209D8FEA0000003B /* ELEPayExampleTests.swift */; };
+		329D25DF209D8FEA0000003B /* ELEPayExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D25DE209D8FEA0000003B /* ELEPayExampleUITests.swift */; };
+		329E05B6210CF02B006BAD91 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E05B5210CF02B006BAD91 /* SettingsBundleHelper.swift */; };
+		32ECCD50209DBF4800954AE9 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCD4F209DBF4800954AE9 /* PaymentManager.swift */; };
+		32ECCD52209EFF5C00954AE9 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCD51209EFF5C00954AE9 /* LoadingIndicator.swift */; };
+		9F2912F2330682AA47D30248 /* libPods-ELEPayExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A706E6AFB733477E3C1EA49 /* libPods-ELEPayExample.a */; };
+		B1566ADB2123C02300278195 /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1566ADA2123C02300278195 /* ProductListCell.swift */; };
+		B17A96BC21230FA800779940 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A96BB21230FA800779940 /* ProductListViewController.swift */; };
+		B17A96C02123100700779940 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A96BF2123100700779940 /* Product.swift */; };
+		B1AF9658212402F500BA1529 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF9657212402F500BA1529 /* ColorExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		329D25D0209D8FEA0000003B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 329D25B3209D8FE90000003B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 329D25BA209D8FE90000003B;
+			remoteInfo = ELEPaySample;
+		};
+		329D25DB209D8FEA0000003B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 329D25B3209D8FE90000003B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 329D25BA209D8FE90000003B;
+			remoteInfo = ELEPaySample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		32D580B8219C03C60075AFE5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0E21F247046804F3EFF0CA41 /* libPods-ELEPayExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		169DEE20163545DF06F63592 /* libPods-ELEPayExample2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExample2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20185E39613B6C81083626AA /* Pods-ELEPayExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample.debug.xcconfig"; sourceTree = "<group>"; };
+		323ACC2D212D6A62006ED0B7 /* SettingFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SettingFiles; sourceTree = "<group>"; };
+		323ACC30212D6AAF006ED0B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		329D25BB209D8FE90000003B /* ELEPayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELEPayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		329D25BE209D8FE90000003B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		329D25C0209D8FE90000003B /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		329D25C3209D8FE90000003B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		329D25C5209D8FEA0000003B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		329D25C8209D8FEA0000003B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		329D25CA209D8FEA0000003B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329D25CF209D8FEA0000003B /* ELEPayExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELEPayExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		329D25D3209D8FEA0000003B /* ELEPayExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELEPayExampleTests.swift; sourceTree = "<group>"; };
+		329D25D5209D8FEA0000003B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329D25DA209D8FEA0000003B /* ELEPayExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELEPayExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		329D25DE209D8FEA0000003B /* ELEPayExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELEPayExampleUITests.swift; sourceTree = "<group>"; };
+		329D25E0209D8FEA0000003B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329E05B5210CF02B006BAD91 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		32CAB7ED20B310F90026A062 /* ELEPayExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ELEPayExample.entitlements; sourceTree = "<group>"; };
+		32ECCD4F209DBF4800954AE9 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		32ECCD51209EFF5C00954AE9 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		6A706E6AFB733477E3C1EA49 /* libPods-ELEPayExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE53D8159A0406A69D8739E /* Pods-ELEPayExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample.release.xcconfig"; sourceTree = "<group>"; };
+		B1566ADA2123C02300278195 /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
+		B17A96BB21230FA800779940 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		B17A96BF2123100700779940 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B1AF9657212402F500BA1529 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		329D25B8209D8FE90000003B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F2912F2330682AA47D30248 /* libPods-ELEPayExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		329D25CC209D8FEA0000003B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		329D25D7209D8FEA0000003B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		321F717C210CEDFE00969635 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				323ACC2D212D6A62006ED0B7 /* SettingFiles */,
+				32CAB7ED20B310F90026A062 /* ELEPayExample.entitlements */,
+				329D25C2209D8FE90000003B /* Main.storyboard */,
+				329D25C5209D8FEA0000003B /* Assets.xcassets */,
+				329D25C7209D8FEA0000003B /* LaunchScreen.storyboard */,
+				323ACC30212D6AAF006ED0B7 /* Settings.bundle */,
+				329D25CA209D8FEA0000003B /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		329D25B2209D8FE90000003B = {
+			isa = PBXGroup;
+			children = (
+				321F717C210CEDFE00969635 /* Resources */,
+				329D25BD209D8FE90000003B /* ELEPayExample */,
+				329D25D2209D8FEA0000003B /* ELEPayExampleTests */,
+				329D25DD209D8FEA0000003B /* ELEPayExampleUITests */,
+				329D25BC209D8FE90000003B /* Products */,
+				A04F1D4734B7B6A84B928F00 /* Frameworks */,
+				C6C77B0979D0AD70B1B310CA /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		329D25BC209D8FE90000003B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				329D25BB209D8FE90000003B /* ELEPayExample.app */,
+				329D25CF209D8FEA0000003B /* ELEPayExampleTests.xctest */,
+				329D25DA209D8FEA0000003B /* ELEPayExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		329D25BD209D8FE90000003B /* ELEPayExample */ = {
+			isa = PBXGroup;
+			children = (
+				B1566AD92123C01A00278195 /* View */,
+				B17A96BE21230FFE00779940 /* Model */,
+				329D25BE209D8FE90000003B /* AppDelegate.swift */,
+				329D25C0209D8FE90000003B /* PaymentViewController.swift */,
+				32ECCD4F209DBF4800954AE9 /* PaymentManager.swift */,
+				32ECCD51209EFF5C00954AE9 /* LoadingIndicator.swift */,
+				B17A96BB21230FA800779940 /* ProductListViewController.swift */,
+				B1AF9657212402F500BA1529 /* ColorExtension.swift */,
+			);
+			path = ELEPayExample;
+			sourceTree = "<group>";
+		};
+		329D25D2209D8FEA0000003B /* ELEPayExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				329D25D3209D8FEA0000003B /* ELEPayExampleTests.swift */,
+				329D25D5209D8FEA0000003B /* Info.plist */,
+			);
+			path = ELEPayExampleTests;
+			sourceTree = "<group>";
+		};
+		329D25DD209D8FEA0000003B /* ELEPayExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				329D25DE209D8FEA0000003B /* ELEPayExampleUITests.swift */,
+				329D25E0209D8FEA0000003B /* Info.plist */,
+			);
+			path = ELEPayExampleUITests;
+			sourceTree = "<group>";
+		};
+		A04F1D4734B7B6A84B928F00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A706E6AFB733477E3C1EA49 /* libPods-ELEPayExample.a */,
+				169DEE20163545DF06F63592 /* libPods-ELEPayExample2.a */,
+				0E21F247046804F3EFF0CA41 /* libPods-ELEPayExampleTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1566AD92123C01A00278195 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1566ADA2123C02300278195 /* ProductListCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B17A96BE21230FFE00779940 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				329E05B5210CF02B006BAD91 /* SettingsBundleHelper.swift */,
+				B17A96BF2123100700779940 /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C6C77B0979D0AD70B1B310CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20185E39613B6C81083626AA /* Pods-ELEPayExample.debug.xcconfig */,
+				8DE53D8159A0406A69D8739E /* Pods-ELEPayExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		329D25BA209D8FE90000003B /* ELEPayExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 329D25E3209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExample" */;
+			buildPhases = (
+				9C39ABD985A819453B51B385 /* [CP] Check Pods Manifest.lock */,
+				329D25B7209D8FE90000003B /* Sources */,
+				329D25B8209D8FE90000003B /* Frameworks */,
+				329D25B9209D8FE90000003B /* Resources */,
+				32123C1821189E4700C0F09E /* Build Number ++ */,
+				32D580B8219C03C60075AFE5 /* Embed Frameworks */,
+				7DAAB393698E0394560CB348 /* [CP] Copy Pods Resources */,
+				AD7EC8A8F581134B20F6151C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ELEPayExample;
+			productName = ELEPaySample;
+			productReference = 329D25BB209D8FE90000003B /* ELEPayExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		329D25CE209D8FEA0000003B /* ELEPayExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 329D25E6209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExampleTests" */;
+			buildPhases = (
+				329D25CB209D8FEA0000003B /* Sources */,
+				329D25CC209D8FEA0000003B /* Frameworks */,
+				329D25CD209D8FEA0000003B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				329D25D1209D8FEA0000003B /* PBXTargetDependency */,
+			);
+			name = ELEPayExampleTests;
+			productName = ELEPaySampleTests;
+			productReference = 329D25CF209D8FEA0000003B /* ELEPayExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		329D25D9209D8FEA0000003B /* ELEPayExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 329D25E9209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExampleUITests" */;
+			buildPhases = (
+				329D25D6209D8FEA0000003B /* Sources */,
+				329D25D7209D8FEA0000003B /* Frameworks */,
+				329D25D8209D8FEA0000003B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				329D25DC209D8FEA0000003B /* PBXTargetDependency */,
+			);
+			name = ELEPayExampleUITests;
+			productName = ELEPaySampleUITests;
+			productReference = 329D25DA209D8FEA0000003B /* ELEPayExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		329D25B3209D8FE90000003B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "ELESTYLE, Inc.";
+				TargetAttributes = {
+					329D25BA209D8FE90000003B = {
+						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
+					};
+					329D25CE209D8FEA0000003B = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 329D25BA209D8FE90000003B;
+					};
+					329D25D9209D8FEA0000003B = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 329D25BA209D8FE90000003B;
+					};
+				};
+			};
+			buildConfigurationList = 329D25B6209D8FE90000003B /* Build configuration list for PBXProject "ELEPayExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 329D25B2209D8FE90000003B;
+			productRefGroup = 329D25BC209D8FE90000003B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				329D25BA209D8FE90000003B /* ELEPayExample */,
+				329D25CE209D8FEA0000003B /* ELEPayExampleTests */,
+				329D25D9209D8FEA0000003B /* ELEPayExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		329D25B9209D8FE90000003B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				329D25C9209D8FEA0000003B /* LaunchScreen.storyboard in Resources */,
+				329D25C6209D8FEA0000003B /* Assets.xcassets in Resources */,
+				323ACC31212D6AAF006ED0B7 /* Settings.bundle in Resources */,
+				329D25C4209D8FE90000003B /* Main.storyboard in Resources */,
+				323ACC2E212D6A62006ED0B7 /* SettingFiles in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		329D25CD209D8FEA0000003B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		329D25D8209D8FEA0000003B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32123C1821189E4700C0F09E /* Build Number ++ */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Number ++";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 2)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi\n";
+		};
+		7DAAB393698E0394560CB348 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-UI-Localization.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-Drop-In-Localization.bundle",
+				"${PODS_ROOT}/ElePay/ElePay.framework/AlipaySDK.bundle",
+				"${PODS_ROOT}/ElePay/ElePay.framework/Stripe.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-UI-Localization.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-Drop-In-Localization.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Stripe.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C39ABD985A819453B51B385 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ELEPayExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD7EC8A8F581134B20F6151C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh",
+				"${PODS_ROOT}/ElePay/ElePay.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ElePay.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		329D25B7209D8FE90000003B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32ECCD52209EFF5C00954AE9 /* LoadingIndicator.swift in Sources */,
+				B1AF9658212402F500BA1529 /* ColorExtension.swift in Sources */,
+				32ECCD50209DBF4800954AE9 /* PaymentManager.swift in Sources */,
+				329D25C1209D8FE90000003B /* PaymentViewController.swift in Sources */,
+				329E05B6210CF02B006BAD91 /* SettingsBundleHelper.swift in Sources */,
+				B17A96BC21230FA800779940 /* ProductListViewController.swift in Sources */,
+				B1566ADB2123C02300278195 /* ProductListCell.swift in Sources */,
+				329D25BF209D8FE90000003B /* AppDelegate.swift in Sources */,
+				B17A96C02123100700779940 /* Product.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		329D25CB209D8FEA0000003B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				329D25D4209D8FEA0000003B /* ELEPayExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		329D25D6209D8FEA0000003B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				329D25DF209D8FEA0000003B /* ELEPayExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		329D25D1209D8FEA0000003B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 329D25BA209D8FE90000003B /* ELEPayExample */;
+			targetProxy = 329D25D0209D8FEA0000003B /* PBXContainerItemProxy */;
+		};
+		329D25DC209D8FEA0000003B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 329D25BA209D8FE90000003B /* ELEPayExample */;
+			targetProxy = 329D25DB209D8FEA0000003B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		329D25C2209D8FE90000003B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				329D25C3209D8FE90000003B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		329D25C7209D8FEA0000003B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				329D25C8209D8FEA0000003B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		329D25E1209D8FEA0000003B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		329D25E2209D8FEA0000003B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		329D25E4209D8FEA0000003B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20185E39613B6C81083626AA /* Pods-ELEPayExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/ELEPayExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZG3FDF8RBQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SharedLib/ELEPaySDK",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.elestyle.elepay.example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		329D25E5209D8FEA0000003B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DE53D8159A0406A69D8739E /* Pods-ELEPayExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/ELEPayExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZG3FDF8RBQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SharedLib/ELEPaySDK",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.elestyle.elepay.example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		329D25E7209D8FEA0000003B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SharedLib/ELEPaySDK",
+				);
+				INFOPLIST_FILE = ELEPayExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.elestyle.elepay.exampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELEPayExample.app/ELEPayExample";
+			};
+			name = Debug;
+		};
+		329D25E8209D8FEA0000003B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SharedLib/ELEPaySDK",
+				);
+				INFOPLIST_FILE = ELEPayExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.elestyle.elepay.exampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELEPayExample.app/ELEPayExample";
+			};
+			name = Release;
+		};
+		329D25EA209D8FEA0000003B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SharedLib/ELEPaySDK",
+				);
+				INFOPLIST_FILE = ELEPayExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.elestyle.elepay.exampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ELEPayExample;
+			};
+			name = Debug;
+		};
+		329D25EB209D8FEA0000003B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SharedLib/ELEPaySDK",
+				);
+				INFOPLIST_FILE = ELEPayExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.elestyle.elepay.exampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ELEPayExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		329D25B6209D8FE90000003B /* Build configuration list for PBXProject "ELEPayExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				329D25E1209D8FEA0000003B /* Debug */,
+				329D25E2209D8FEA0000003B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		329D25E3209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				329D25E4209D8FEA0000003B /* Debug */,
+				329D25E5209D8FEA0000003B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		329D25E6209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				329D25E7209D8FEA0000003B /* Debug */,
+				329D25E8209D8FEA0000003B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		329D25E9209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				329D25EA209D8FEA0000003B /* Debug */,
+				329D25EB209D8FEA0000003B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 329D25B3209D8FE90000003B /* Project object */;
+}

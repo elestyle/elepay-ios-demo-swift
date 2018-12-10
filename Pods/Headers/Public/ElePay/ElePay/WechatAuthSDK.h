@@ -1,0 +1,1 @@
+../../../../ElePay/ElePay.framework/Headers/WechatAuthSDK.h

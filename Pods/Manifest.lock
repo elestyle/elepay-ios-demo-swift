@@ -1,0 +1,41 @@
+PODS:
+  - Braintree (4.20.2):
+    - Braintree/Card (= 4.20.2)
+    - Braintree/Core (= 4.20.2)
+    - Braintree/PayPal (= 4.20.2)
+    - Braintree/UI (= 4.20.2)
+  - Braintree/Card (4.20.2):
+    - Braintree/Core
+  - Braintree/Core (4.20.2)
+  - Braintree/PayPal (4.20.2):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.20.2):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.20.2):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.20.2)
+  - Braintree/UI (4.20.2):
+    - Braintree/Card
+    - Braintree/Core
+  - ElePay (0.0.3):
+    - Braintree
+
+DEPENDENCIES:
+  - ElePay
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Braintree
+    - ElePay
+
+SPEC CHECKSUMS:
+  Braintree: 49cd0ea2ee8a87649fbc0b1e959963bc77464bf8
+  ElePay: 6e337141498ab30cc570d9caa5dc7aaaaa393381
+
+PODFILE CHECKSUM: 7f8d35f8a70846e61f26d027b4de9339ad1c482f
+
+COCOAPODS: 1.5.3
