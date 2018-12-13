@@ -21,8 +21,10 @@ PODS:
   - Braintree/UI (4.20.2):
     - Braintree/Card
     - Braintree/Core
-  - ElePay (0.0.3):
-    - Braintree
+  - ElePay (0.0.4):
+    - Braintree (= 4.20.2)
+    - Stripe (= 14.0.0)
+  - Stripe (14.0.0)
 
 DEPENDENCIES:
   - ElePay
@@ -31,10 +33,12 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Braintree
     - ElePay
+    - Stripe
 
 SPEC CHECKSUMS:
   Braintree: 49cd0ea2ee8a87649fbc0b1e959963bc77464bf8
-  ElePay: 6e337141498ab30cc570d9caa5dc7aaaaa393381
+  ElePay: 0801151d801c9cb2d502e1bf588adbf4fbf8b2a5
+  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
 
 PODFILE CHECKSUM: 7f8d35f8a70846e61f26d027b4de9339ad1c482f
 
