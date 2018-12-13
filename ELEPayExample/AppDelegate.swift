@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let APIURLSetting = SettingsBundleHelper.getAPIURLSetting()
         let testMode = SettingsBundleHelper.getTestModeSetting()
@@ -50,8 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         // Let elepay Handle Result Callback from 3rd party payment Apps first.
         if (ElePay.handleOpenURL(url, options: options)) {
             // When ELEPay has already handled the URL, make sure your code returns here.
@@ -62,4 +61,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false;
     }
 }
-
