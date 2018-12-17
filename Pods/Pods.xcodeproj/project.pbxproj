@@ -3395,7 +3395,32 @@
 			};
 			name = Debug;
 		};
-		1437A224A98FB9E43D63CCE1FDCA1759 /* Release */ = {
+		1372F4D3F0D23299FF164F25E8F32DF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6903DC3A7ACDFAE1D253E90A02F8D63 /* Braintree.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Braintree/Braintree-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MODULEMAP_FILE = Headers/Public/Braintree/Braintree.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Braintree;
+				PRODUCT_NAME = Braintree;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		191588F6D48DAF58FA593EFBCA58A961 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA89C76487A72F3250DFAA6B97D7D6BB /* Stripe.xcconfig */;
 			buildSettings = {
@@ -3415,7 +3440,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3434,31 +3459,6 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		50B3A752CB94DFA8806E5466C35393DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA89C76487A72F3250DFAA6B97D7D6BB /* Stripe.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/Stripe/Stripe-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MODULEMAP_FILE = Headers/Public/Stripe/Stripe.modulemap;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = Stripe;
-				PRODUCT_NAME = Stripe;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -3540,7 +3540,7 @@
 			};
 			name = Release;
 		};
-		6102E58F5A1705A0BC24DA704E414385 /* Release */ = {
+		612BAADCD7C19C0EE4B03299626EEF8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6903DC3A7ACDFAE1D253E90A02F8D63 /* Braintree.xcconfig */;
 			buildSettings = {
@@ -3560,7 +3560,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3619,31 +3619,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		838E16A2ECA394754E28828BAFBCC6EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6903DC3A7ACDFAE1D253E90A02F8D63 /* Braintree.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/Braintree/Braintree-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MODULEMAP_FILE = Headers/Public/Braintree/Braintree.modulemap;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = Braintree;
-				PRODUCT_NAME = Braintree;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		858D01EEFE984249A9581D18DBEA53F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3711,6 +3686,31 @@
 			};
 			name = Debug;
 		};
+		C00F0F46E8CF89AEDF4539620B08BB4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA89C76487A72F3250DFAA6B97D7D6BB /* Stripe.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Stripe/Stripe-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MODULEMAP_FILE = Headers/Public/Stripe/Stripe.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Stripe;
+				PRODUCT_NAME = Stripe;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		FE6D2614BBC53876042EFC7CE28B08E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6903DC3A7ACDFAE1D253E90A02F8D63 /* Braintree.xcconfig */;
@@ -3760,8 +3760,8 @@
 		CC6C8A58C309F5670E80813CCC37F91A /* Build configuration list for PBXNativeTarget "Stripe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				50B3A752CB94DFA8806E5466C35393DD /* Debug */,
-				1437A224A98FB9E43D63CCE1FDCA1759 /* Release */,
+				C00F0F46E8CF89AEDF4539620B08BB4D /* Debug */,
+				191588F6D48DAF58FA593EFBCA58A961 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3787,8 +3787,8 @@
 		F9BB894C71D31FFCD6C8B4F62C4ABB6F /* Build configuration list for PBXNativeTarget "Braintree" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				838E16A2ECA394754E28828BAFBCC6EA /* Debug */,
-				6102E58F5A1705A0BC24DA704E414385 /* Release */,
+				1372F4D3F0D23299FF164F25E8F32DF5 /* Debug */,
+				612BAADCD7C19C0EE4B03299626EEF8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

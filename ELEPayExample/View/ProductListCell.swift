@@ -33,11 +33,17 @@ final class ProductListCell: UITableViewCell {
         return ret
     }()
     private let payButton: UIButton = {
-        let ret = UIButton(type: .system)
-        ret.translatesAutoresizingMaskIntoConstraints = false
+        let ret = UIButton(type: .custom)
         ret.setTitle("Buy", for: .normal)
         ret.backgroundColor = UIColor.elepayGreen
         ret.setTitleColor(UIColor.white, for: .normal)
+        ret.translatesAutoresizingMaskIntoConstraints = false
+        ret.titleLabel?.leadingAnchor.constraint(equalTo: ret.leadingAnchor).isActive = true
+        ret.titleLabel?.trailingAnchor.constraint(equalTo: ret.trailingAnchor).isActive = true
+        ret.titleLabel?.topAnchor.constraint(equalTo: ret.topAnchor).isActive = true
+        ret.titleLabel?.bottomAnchor.constraint(equalTo: ret.bottomAnchor).isActive = true
+        ret.titleLabel?.textAlignment = .center
+        ret.layer.cornerRadius = 20
         return ret
     }()
 
@@ -60,8 +66,6 @@ final class ProductListCell: UITableViewCell {
         contentView.addSubview(titleView)
         contentView.addSubview(priceView)
         contentView.addSubview(payButton)
-
-        payButton.layer.cornerRadius = 20
 
         let views: [String: Any] = ["image": productImageView, "title": titleView, "price": priceView, "pay": payButton]
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(

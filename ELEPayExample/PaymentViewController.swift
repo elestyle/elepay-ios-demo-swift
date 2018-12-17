@@ -119,7 +119,7 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
         let paymentMethod = paymentMethods[indexPath.row]
         cell.imageView?.image = UIImage(named: paymentMethod.imageName)
         cell.textLabel?.text = paymentMethod.paymentName
-        cell.tintColor = UIColor(named: "highlightColor")
+        cell.tintColor = UIColor.elepayGreen
         if tableView.indexPathForSelectedRow?.row == indexPath.row {
             cell.accessoryType = .checkmark
         } else {

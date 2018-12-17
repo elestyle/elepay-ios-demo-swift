@@ -6,5 +6,5 @@
 import UIKit
 
 extension UIColor {
-    static let elepayGreen = UIColor(red:0.102, green:0.660, blue:0.290, alpha:1.000)
+    static let elepayGreen = UIColor(red: 27/255.0, green: 168/255.0, blue: 74/255.0, alpha: 1.0)
 }

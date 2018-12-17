@@ -56,8 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // When ELEPay has already handled the URL, make sure your code returns here.
             return true;
         }
-
+ 
         // for no payment URL, handle it in your own code below.
         return false;
     }
 }
+
