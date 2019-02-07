@@ -5,7 +5,7 @@
 	<key>api_server_url_preference</key>
 	<string></string>
 	<key>user_server_order_api</key>
-	<string>https://demo.icart.jp/api/orders</string>
+	<string>Input your own Server API URL heres. For example: https://demo.icart.jp/api/orders</string>
 	<key>test_mode_key</key>
 	<string>Replace the string here to Test Key from elepay console</string>
 	<key>live_mode_key</key>

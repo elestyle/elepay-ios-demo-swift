@@ -34,10 +34,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>jp.elestyle.elepay.example.scheme</string>
+			<string>jp.elestyle.elepay.example.scheme.paypal</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>jp.elestyle.elepay.example.icartexample</string>
+				<string>jp.elestyle.elepay.example.paypal</string>
 			</array>
 		</dict>
 	</array>

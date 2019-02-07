@@ -11,13 +11,14 @@ import UIKit
 import PassKit
 
 public enum PaymentChannel: String {
-    case wechat = "wx"
+    case wechat = "wechat"
     case alipay = "alipay"
     case creditcard = "creditcard"
     case unionpay = "unionpay"
     case applepay = "applepay"
     case applepaycn = "applepay_cn"
     case paypal = "paypal"
+    case linepay = "linepay"
 }
 
 public class PaymentManager: NSObject {
@@ -30,11 +31,31 @@ public class PaymentManager: NSObject {
          That's why we do not include these code below in our SDK.
          */
 
-        guard let chargeURL = SettingsBundleHelper.getChargeURLSetting() else {
-            fatalError("Charge URL not set")
+        // The Local Server Mode is only for testing your enviroment of iOS SDK.
+        // NEVER use it in your production enviroment!
+        // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        let useLocalServer = SettingsBundleHelper.getLocalServerSetting()
+        // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+        var apiServerURLStr = SettingsBundleHelper.getAPIURLSetting() ?? ""
+        if apiServerURLStr.isEmpty {
+            apiServerURLStr = "https://api.elepay.io"
+        }
+        var chargeURL = apiServerURLStr + "/charges"
+        let isTestMode = SettingsBundleHelper.getTestModeSetting()
+        if !useLocalServer {
+            guard let userServerURL = SettingsBundleHelper.getChargeURLSetting() else {
+                fatalError("Charge URL not set")
+            }
+            chargeURL = userServerURL
         }
         var postRequest = URLRequest(url: URL(string: chargeURL)!)   // It's your response to make sure your URL string is safe to convert to URL
-        let body: [String: Any] = ["paymentMethod": channel.rawValue, "amount": amount]
+        var body: [String: Any] = ["paymentMethod": channel.rawValue, "amount": amount]
+        if useLocalServer {
+            // Directly create charge from your App.
+            // WARNING! Do NOT use this way in production environment. Because secret key is required which you should NEVER keep in your App.
+            body["orderNo"] = UUID.init().uuidString
+            body["description"] = "Demo App directly charge"
+        }
         let bodyData = try? JSONSerialization.data(withJSONObject: body, options: [])
         #if DEBUG
         if let charge = String(data: bodyData!, encoding: .utf8) {
@@ -44,20 +65,29 @@ public class PaymentManager: NSObject {
         postRequest.httpBody = bodyData
         postRequest.httpMethod = "POST"
         postRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        if SettingsBundleHelper.getTestModeSetting() {
-            postRequest.setValue("false", forHTTPHeaderField: "live-mode")
+        if useLocalServer {
+            // WARNING AGAIN! Do NOT use this way in production environment.
+            // Because secret key is required which you should NEVER keep in your App.
+            let userPasswordData = "\(isTestMode ? SettingsBundleHelper.getTestSecretKey()! : SettingsBundleHelper.getLiveSecretKey()!):".data(using: .utf8)
+            let base64EncodedCredential = userPasswordData?.base64EncodedString()
+            let authString = "Basic \(base64EncodedCredential ?? "")"
+            postRequest.setValue(authString, forHTTPHeaderField: "Authorization")
+        } else {
+            if isTestMode {
+                // Tell your server to use Test Key for making charge. You can use your own way to do so.
+                postRequest.setValue("false", forHTTPHeaderField: "live-mode")
+            }
         }
 
         let task = URLSession.shared.dataTask(with: postRequest) { (result, response, error) in
             DispatchQueue.main.async {
-                guard let httpResponse = response as? HTTPURLResponse else {
+                defer {
                     viewController.hideLoadingIndicator()
-                    return
                 }
+                
+                guard let httpResponse = response as? HTTPURLResponse else { return }
 
                 if error != nil || httpResponse.statusCode != 200 || result == nil {
-                    viewController.hideLoadingIndicator()
-
                     let alert = UIAlertController(title: "Error", message: "Make Payment Failed: \(error?.localizedDescription ?? String(httpResponse.statusCode))", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     viewController.present(alert, animated: true, completion: nil)
@@ -71,8 +101,7 @@ public class PaymentManager: NSObject {
                 #endif
 
                 let success = ElePay.handlePayment(chargeData: result!, viewController: viewController) { paymentResult in
-                    viewController.hideLoadingIndicator()
-
+                    
                     var alert: UIAlertController? = nil
                     switch (paymentResult) {
                     case .succeeded(_):

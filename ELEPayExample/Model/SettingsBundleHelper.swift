@@ -16,6 +16,9 @@ class SettingsBundleHelper: NSObject {
         static let testModeKey = "test_mode_key"
         static let liveModeKey = "live_mode_key"
         static let urlScheme = "url_scheme"
+        static let localServer = "api_no_server"
+        static let liveSecretKey = "live_secret_key"
+        static let testSecretKey = "test_secret_key"
     }
     
     fileprivate static func getDefaultSettingAny(key: String) -> Any? {
@@ -71,5 +74,17 @@ class SettingsBundleHelper: NSObject {
     
     static func getAppURLScheme() -> String? {
         return getDefaultSettingString(key: SettingKeys.urlScheme)
+    }
+
+    static func getLocalServerSetting() -> Bool {
+        return UserDefaults.standard.bool(forKey: SettingKeys.localServer)
+    }
+
+    static func getLiveSecretKey() -> String? {
+        return getSettingAndSetDefaultString(key: SettingKeys.liveSecretKey)
+    }
+
+    static func getTestSecretKey() -> String? {
+        return getSettingAndSetDefaultString(key: SettingKeys.testSecretKey)
     }
 }

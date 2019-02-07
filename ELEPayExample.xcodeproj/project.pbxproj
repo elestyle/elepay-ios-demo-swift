@@ -380,7 +380,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-UI-Localization.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-Drop-In-Localization.bundle",
 				"${PODS_ROOT}/ElePay/ElePay.framework/AlipaySDK.bundle",
@@ -397,7 +397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9C39ABD985A819453B51B385 /* [CP] Check Pods Manifest.lock */ = {
@@ -430,7 +430,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh",
 				"${PODS_ROOT}/ElePay/ElePay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -441,7 +441,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

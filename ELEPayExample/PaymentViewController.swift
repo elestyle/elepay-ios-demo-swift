@@ -33,7 +33,8 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
                          PaymentMethod(imageName: "applepay", paymentName: "Apple Pay", paymentChannel: .applepay),
                          PaymentMethod(imageName: "unionpay", paymentName: "Union Pay", paymentChannel: .unionpay),
                          PaymentMethod(imageName: "applepay", paymentName: "Apple Pay China", paymentChannel: .applepaycn),
-                         PaymentMethod(imageName: "paypal", paymentName: "PayPal", paymentChannel: .paypal)]
+                         PaymentMethod(imageName: "paypal", paymentName: "PayPal", paymentChannel: .paypal),
+                         PaymentMethod(imageName: "linepay", paymentName: "Line Pay", paymentChannel: .linepay)]
 
         priceLabel.text = "JPY ¥" + priceData
 
