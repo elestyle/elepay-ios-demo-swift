@@ -15,7 +15,6 @@ class SettingsBundleHelper: NSObject {
         static let chargeURL = "user_server_order_api"
         static let testModeKey = "test_mode_key"
         static let liveModeKey = "live_mode_key"
-        static let urlScheme = "url_scheme"
         static let localServer = "api_no_server"
         static let liveSecretKey = "live_secret_key"
         static let testSecretKey = "test_secret_key"
@@ -60,31 +59,27 @@ class SettingsBundleHelper: NSObject {
         return getSettingAndSetDefaultString(key: SettingKeys.chargeURL)
     }
     
-    static func getTestModeKey() -> String? {
-        return getSettingAndSetDefaultString(key: SettingKeys.testModeKey)
+    static func getTestModeKey() -> String {
+        return getSettingAndSetDefaultString(key: SettingKeys.testModeKey) ?? ""
     }
     
-    static func getLiveModeKey() -> String? {
-        return getSettingAndSetDefaultString(key: SettingKeys.liveModeKey)
+    static func getLiveModeKey() -> String {
+        return getSettingAndSetDefaultString(key: SettingKeys.liveModeKey) ?? ""
     }
     
     static func getTestModeSetting() -> Bool {
         return UserDefaults.standard.bool(forKey: SettingKeys.testMode)
     }
     
-    static func getAppURLScheme() -> String? {
-        return getDefaultSettingString(key: SettingKeys.urlScheme)
-    }
-
     static func getLocalServerSetting() -> Bool {
         return UserDefaults.standard.bool(forKey: SettingKeys.localServer)
     }
 
-    static func getLiveSecretKey() -> String? {
-        return getSettingAndSetDefaultString(key: SettingKeys.liveSecretKey)
+    static func getLiveSecretKey() -> String {
+        return getSettingAndSetDefaultString(key: SettingKeys.liveSecretKey) ?? ""
     }
 
-    static func getTestSecretKey() -> String? {
-        return getSettingAndSetDefaultString(key: SettingKeys.testSecretKey)
+    static func getTestSecretKey() -> String {
+        return getSettingAndSetDefaultString(key: SettingKeys.testSecretKey) ?? ""
     }
 }

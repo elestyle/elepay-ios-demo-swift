@@ -27,7 +27,7 @@
 			<string>jp.elestyle.elepay.example.scheme</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>icartexample</string>
+				<string>ep1a2b3c4d5e</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,7 +37,7 @@
 			<string>jp.elestyle.elepay.example.scheme.paypal</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>jp.elestyle.elepay.example.paypal</string>
+				<string>jp.elestyle.elepay.example.ep1a2b3c4d5e</string>
 			</array>
 		</dict>
 	</array>

@@ -13,66 +13,7 @@
 			<string></string>
 			<key>FooterText</key>
 			<string>NOTE:
-• Turn ON &quot;Local Only Mode&quot; for testing elepay SDK locally.
-• Due to security reason, a remote server is required in your production environment for making charge and verify payment result.
-• You can turn OFF this switch and input the URL of your own server's &quot;Charge API&quot; below for testing.</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>🖥 Local Only Mode</string>
-			<key>Key</key>
-			<string>api_no_server</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>☁️ Live Secret Key</string>
-			<key>Key</key>
-			<string>live_secret_key</string>
-			<key>DefaultValue</key>
-			<string></string>
-			<key>IsSecure</key>
-			<false/>
-			<key>KeyboardType</key>
-			<string>URL</string>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>☁️ Test Secret Key</string>
-			<key>Key</key>
-			<string>test_secret_key</string>
-			<key>DefaultValue</key>
-			<string></string>
-			<key>IsSecure</key>
-			<false/>
-			<key>KeyboardType</key>
-			<string>URL</string>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string></string>
-			<key>FooterText</key>
-			<string>NOTE:
-• Leave &quot;Private SAAS&quot; URL empty if you are using our cloud service.
-• Any settings of &quot;Charge API&quot; will be ignored when &quot;Local Only Mode&quot; is turned ON.
-• Make sure to RESTART &quot;iCart&quot; so these changes can take effect.</string>
+• You can find your public keys from "https://dashboard.elepay.io".</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -83,42 +24,6 @@
 			<string>api_server_test_mode</string>
 			<key>DefaultValue</key>
 			<string>NO</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>☁️ Private SAAS:</string>
-			<key>Key</key>
-			<string>api_server_url_preference</string>
-			<key>DefaultValue</key>
-			<string></string>
-			<key>IsSecure</key>
-			<false/>
-			<key>KeyboardType</key>
-			<string>URL</string>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>☁️ Charge API:</string>
-			<key>Key</key>
-			<string>user_server_order_api</string>
-			<key>DefaultValue</key>
-			<string></string>
-			<key>IsSecure</key>
-			<false/>
-			<key>KeyboardType</key>
-			<string>URL</string>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
-			<key>AutocorrectionType</key>
-			<string>No</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -145,6 +50,110 @@
 			<string>🔑 Test Key:</string>
 			<key>Key</key>
 			<string>test_mode_key</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>IsSecure</key>
+			<false/>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+			<key>FooterText</key>
+			<string>NOTE:
+• Turn ON &quot;Local Only Mode&quot; for testing elepay SDK locally.
+• Due to security reason, a remote server is required in your production environment for making charge and verify payment result.
+• You can turn OFF &quot;Local Only Mode&quot; and input the URL of your own server&apos;s &quot;Charge API&quot; below for testing.</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>🖥 Local Only Mode</string>
+			<key>Key</key>
+			<string>api_no_server</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>🔑 Live Secret Key</string>
+			<key>Key</key>
+			<string>live_secret_key</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>IsSecure</key>
+			<false/>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>🔑 Test Secret Key</string>
+			<key>Key</key>
+			<string>test_secret_key</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>IsSecure</key>
+			<false/>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+			<key>FooterText</key>
+			<string>NOTE:
+• Leave &quot;Private SAAS&quot; URL empty if you are using our cloud service.
+• Any setting in &quot;Charge API&quot; will be ignored when &quot;Local Only Mode&quot; is turned ON.
+• Make sure to RESTART &quot;iCart&quot; so these changes can take effect.</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>☁️ Private SAAS:</string>
+			<key>Key</key>
+			<string>api_server_url_preference</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>IsSecure</key>
+			<false/>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>☁️ Charge API:</string>
+			<key>Key</key>
+			<string>user_server_order_api</string>
 			<key>DefaultValue</key>
 			<string></string>
 			<key>IsSecure</key>

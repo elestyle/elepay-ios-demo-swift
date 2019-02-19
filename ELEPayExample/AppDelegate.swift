@@ -18,12 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let APIURLSetting = SettingsBundleHelper.getAPIURLSetting()
         let testMode = SettingsBundleHelper.getTestModeSetting()
-        let urlScheme = SettingsBundleHelper.getAppURLScheme()  // NOTE: You should also edit the info.plist file to add an URL Type for this scheme
-        guard let key = testMode ? SettingsBundleHelper.getTestModeKey() : SettingsBundleHelper.getLiveModeKey(),
-            !key.isEmpty else {
-                fatalError("Test Mode Key not set")
+        let key = testMode ? SettingsBundleHelper.getTestModeKey() : SettingsBundleHelper.getLiveModeKey()
+        if key.isEmpty {
+            fatalError("Test Mode Key not set")
         }
-        ElePay.initApp(key: key, scheme: urlScheme!, apiURLString: APIURLSetting)
+        ElePay.initApp(key: key, apiURLString: APIURLSetting)
         
         return true
     }

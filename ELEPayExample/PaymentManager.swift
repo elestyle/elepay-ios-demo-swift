@@ -68,7 +68,11 @@ public class PaymentManager: NSObject {
         if useLocalServer {
             // WARNING AGAIN! Do NOT use this way in production environment.
             // Because secret key is required which you should NEVER keep in your App.
-            let userPasswordData = "\(isTestMode ? SettingsBundleHelper.getTestSecretKey()! : SettingsBundleHelper.getLiveSecretKey()!):".data(using: .utf8)
+            let key = isTestMode ? SettingsBundleHelper.getTestSecretKey() : SettingsBundleHelper.getLiveSecretKey()
+            if key.isEmpty {
+                fatalError("Test Mode Secret Key not set")
+            }
+            let userPasswordData = "\(key):".data(using: .utf8)
             let base64EncodedCredential = userPasswordData?.base64EncodedString()
             let authString = "Basic \(base64EncodedCredential ?? "")"
             postRequest.setValue(authString, forHTTPHeaderField: "Authorization")

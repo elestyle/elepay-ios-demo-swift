@@ -10,7 +10,5 @@
 	<string>Replace the string here to Test Key from elepay console</string>
 	<key>live_mode_key</key>
 	<string>Replace the string here to Live Key from elepay console</string>
-	<key>url_scheme</key>
-	<string>icartexample</string>
 </dict>
 </plist>
