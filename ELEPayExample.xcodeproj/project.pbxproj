@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		323489E6221D46CE009EEBE5 /* ElePayObjCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323489E5221D46CE009EEBE5 /* ElePayObjCBridge.swift */; };
 		323ACC2E212D6A62006ED0B7 /* SettingFiles in Resources */ = {isa = PBXBuildFile; fileRef = 323ACC2D212D6A62006ED0B7 /* SettingFiles */; };
 		323ACC31212D6AAF006ED0B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 323ACC30212D6AAF006ED0B7 /* Settings.bundle */; };
 		329D25BF209D8FE90000003B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D25BE209D8FE90000003B /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		0E21F247046804F3EFF0CA41 /* libPods-ELEPayExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		169DEE20163545DF06F63592 /* libPods-ELEPayExample2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExample2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20185E39613B6C81083626AA /* Pods-ELEPayExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample.debug.xcconfig"; sourceTree = "<group>"; };
+		323489E5221D46CE009EEBE5 /* ElePayObjCBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElePayObjCBridge.swift; sourceTree = "<group>"; };
 		323ACC2D212D6A62006ED0B7 /* SettingFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SettingFiles; sourceTree = "<group>"; };
 		323ACC30212D6AAF006ED0B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		329D25BB209D8FE90000003B /* ELEPayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELEPayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,10 +127,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		323489E4221D46CE009EEBE5 /* ELEPayObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				323489E5221D46CE009EEBE5 /* ElePayObjCBridge.swift */,
+			);
+			path = ELEPayObjectiveC;
+			sourceTree = "<group>";
+		};
 		329D25B2209D8FE90000003B = {
 			isa = PBXGroup;
 			children = (
 				321F717C210CEDFE00969635 /* Resources */,
+				323489E4221D46CE009EEBE5 /* ELEPayObjectiveC */,
 				329D25BD209D8FE90000003B /* ELEPayExample */,
 				329D25D2209D8FEA0000003B /* ELEPayExampleTests */,
 				329D25DD209D8FEA0000003B /* ELEPayExampleUITests */,
@@ -454,6 +465,7 @@
 				32ECCD50209DBF4800954AE9 /* PaymentManager.swift in Sources */,
 				329D25C1209D8FE90000003B /* PaymentViewController.swift in Sources */,
 				329E05B6210CF02B006BAD91 /* SettingsBundleHelper.swift in Sources */,
+				323489E6221D46CE009EEBE5 /* ElePayObjCBridge.swift in Sources */,
 				B17A96BC21230FA800779940 /* ProductListViewController.swift in Sources */,
 				B1566ADB2123C02300278195 /* ProductListCell.swift in Sources */,
 				329D25BF209D8FE90000003B /* AppDelegate.swift in Sources */,
