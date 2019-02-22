@@ -19,6 +19,7 @@ public enum PaymentChannel: String {
     case applepaycn = "applepay_cn"
     case paypal = "paypal"
     case linepay = "linepay"
+    case paidy = "paidy"
 }
 
 public class PaymentManager: NSObject {
@@ -55,6 +56,18 @@ public class PaymentManager: NSObject {
             // WARNING! Do NOT use this way in production environment. Because secret key is required which you should NEVER keep in your App.
             body["orderNo"] = UUID.init().uuidString
             body["description"] = "Demo App directly charge"
+
+            if channel == .paidy {
+                var extra = ["buyerName": "elepay demo",
+                            "buyerZip": "100-0005",
+                            "buyerAddress1": "東京都千代田区",
+                            "buyerAddress2": "丸の内1丁目"]
+                #if IN_HOUSE || DEBUG
+                extra["buyerPhone"] = "08000000001"
+                extra["buyerEmail"] = "successful.payment@paidy.com"
+                #endif
+                body["extra"] = extra
+            }
         }
         let bodyData = try? JSONSerialization.data(withJSONObject: body, options: [])
         #if DEBUG
@@ -110,7 +123,7 @@ public class PaymentManager: NSObject {
                     switch (paymentResult) {
                     case .succeeded(_):
                         alert = UIAlertController(title: "Succeed", message: "Make Payment Succeed", preferredStyle: .alert)
-                    case let .canceled(paymentId):
+                    case let .cancelled(paymentId):
                         alert = UIAlertController(title: "Warning", message: "Payment Canceled \(paymentId)", preferredStyle: .alert)
                     case let .failed(_, error):
                         alert = UIAlertController(title: "Error", message: "Make Payment Failed \(String(describing: error.errorDescription))", preferredStyle: .alert)

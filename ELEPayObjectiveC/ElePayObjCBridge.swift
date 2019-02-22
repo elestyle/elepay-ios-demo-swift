@@ -27,7 +27,7 @@ final public class ElePayObjCBridge: NSObject {
             switch (paymentResult) {
             case .succeeded(_):
                 print("Payment Succeed")
-            case .canceled(_):
+            case .cancelled(_):
                 print("Canceled by user")
             case let .failed(_, error):
                 switch (error) {

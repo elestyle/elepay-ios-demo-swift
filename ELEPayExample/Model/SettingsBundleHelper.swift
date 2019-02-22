@@ -72,6 +72,7 @@ class SettingsBundleHelper: NSObject {
     }
     
     static func getLocalServerSetting() -> Bool {
+        UserDefaults.standard.register(defaults: [SettingKeys.localServer: true])
         return UserDefaults.standard.bool(forKey: SettingKeys.localServer)
     }
 
