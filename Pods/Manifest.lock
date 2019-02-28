@@ -21,7 +21,7 @@ PODS:
   - Braintree/UI (4.22.0):
     - Braintree/Card
     - Braintree/Core
-  - ElePay (1.1.0):
+  - ElePay (1.1.1):
     - Braintree (= 4.22.0)
     - Stripe (= 14.0.0)
   - Stripe (14.0.0)
@@ -37,9 +37,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Braintree: e814ec196208d3e961c488cf4071de043f399cf9
-  ElePay: 7d93764705f67c801413f620fd89e68284c622fe
+  ElePay: da69048ccfe9018da953dd2fd3b402dff4790b3a
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
 
 PODFILE CHECKSUM: 7f8d35f8a70846e61f26d027b4de9339ad1c482f
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.6.1
