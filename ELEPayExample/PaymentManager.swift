@@ -105,7 +105,14 @@ public class PaymentManager: NSObject {
                 guard let httpResponse = response as? HTTPURLResponse else { return }
 
                 if error != nil || httpResponse.statusCode != 200 || result == nil {
-                    let alert = UIAlertController(title: "Error", message: "Make Payment Failed: \(error?.localizedDescription ?? String(httpResponse.statusCode))", preferredStyle: .alert)
+                    var message: String = "Make Payment Failed: \(error?.localizedDescription ?? String(httpResponse.statusCode))"
+                    if let errorJSON = (try? JSONSerialization.jsonObject(with: result!, options: [])) as? [String: Any],
+                        let errorCode = errorJSON["code"] as? String,
+                        let errorMsg = errorJSON["message"] as? String {
+                        message = "Make Payment Failed: \(error?.localizedDescription ?? String(httpResponse.statusCode))" +
+                            ", Code: " + errorCode + ", Message: " + errorMsg
+                    }
+                    let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     viewController.present(alert, animated: true, completion: nil)
                     return;
