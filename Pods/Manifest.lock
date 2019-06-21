@@ -1,30 +1,30 @@
 PODS:
-  - Braintree (4.22.0):
-    - Braintree/Card (= 4.22.0)
-    - Braintree/Core (= 4.22.0)
-    - Braintree/PayPal (= 4.22.0)
-    - Braintree/UI (= 4.22.0)
-  - Braintree/Card (4.22.0):
+  - Braintree (4.23.0):
+    - Braintree/Card (= 4.23.0)
+    - Braintree/Core (= 4.23.0)
+    - Braintree/PayPal (= 4.23.0)
+    - Braintree/UI (= 4.23.0)
+  - Braintree/Card (4.23.0):
     - Braintree/Core
-  - Braintree/Core (4.22.0)
-  - Braintree/PayPal (4.22.0):
+  - Braintree/Core (4.23.0)
+  - Braintree/PayPal (4.23.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.22.0):
+  - Braintree/PayPalDataCollector (4.23.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.22.0):
+  - Braintree/PayPalOneTouch (4.23.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.22.0)
-  - Braintree/UI (4.22.0):
+  - Braintree/PayPalUtils (4.23.0)
+  - Braintree/UI (4.23.0):
     - Braintree/Card
     - Braintree/Core
-  - ElePay (1.1.3):
-    - Braintree (= 4.22.0)
-    - Stripe (= 14.0.0)
-  - Stripe (14.0.0)
+  - ElePay (1.2):
+    - Braintree (= 4.23.0)
+    - Stripe (= 15.0.1)
+  - Stripe (15.0.1)
 
 DEPENDENCIES:
   - ElePay
@@ -36,10 +36,10 @@ SPEC REPOS:
     - Stripe
 
 SPEC CHECKSUMS:
-  Braintree: e814ec196208d3e961c488cf4071de043f399cf9
-  ElePay: d1d9c5e7182244c0761281f31904bd9746951e9b
-  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
+  Braintree: b5841b9b1c1dadc86959db3e29d36099b67f91bf
+  ElePay: 19a2d5993cbee0ebb6378d6fc2f8d41abcc217dc
+  Stripe: 2c4d0a88817361a102886315ff452d90f65e898b
 
 PODFILE CHECKSUM: 7f8d35f8a70846e61f26d027b4de9339ad1c482f
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.2
