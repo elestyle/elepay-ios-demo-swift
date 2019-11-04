@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh
 ${PODS_ROOT}/ElePay/ElePay.framework
+${PODS_ROOT}/ElePay-ChinesePayments-Plugin/ElePay_ChinesePayments_Plugin.framework

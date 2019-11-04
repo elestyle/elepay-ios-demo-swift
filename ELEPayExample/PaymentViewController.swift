@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ElePay
 
 class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -29,13 +30,15 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         paymentMethods = [PaymentMethod(imageName: "alipay", paymentName: "Alipay", paymentChannel: .alipay),
-                         PaymentMethod(imageName: "creditcard", paymentName: "Credit Card", paymentChannel: .creditcard),
-                         PaymentMethod(imageName: "applepay", paymentName: "Apple Pay", paymentChannel: .applepay),
-                         PaymentMethod(imageName: "unionpay", paymentName: "Union Pay", paymentChannel: .unionpay),
-                         PaymentMethod(imageName: "applepay", paymentName: "Apple Pay China", paymentChannel: .applepaycn),
-                         PaymentMethod(imageName: "paypal", paymentName: "PayPal", paymentChannel: .paypal),
-                         PaymentMethod(imageName: "linepay", paymentName: "Line Pay", paymentChannel: .linepay),
-                         PaymentMethod(imageName: "paidy", paymentName: "Paidy", paymentChannel: .paidy)]
+                          PaymentMethod(imageName: "wechat", paymentName: "WeChat", paymentChannel: .wechat),
+                          PaymentMethod(imageName: "creditcard", paymentName: "Credit Card", paymentChannel: .creditcard),
+                          PaymentMethod(imageName: "applepay", paymentName: "Apple Pay", paymentChannel: .applepay),
+                          PaymentMethod(imageName: "unionpay", paymentName: "Union Pay", paymentChannel: .unionpay),
+                          PaymentMethod(imageName: "applepay", paymentName: "Apple Pay China", paymentChannel: .applepaycn),
+                          PaymentMethod(imageName: "paypal", paymentName: "PayPal", paymentChannel: .paypal),
+                          PaymentMethod(imageName: "linepay", paymentName: "Line Pay", paymentChannel: .linepay),
+                          PaymentMethod(imageName: "paidy", paymentName: "Paidy", paymentChannel: .paidy),
+                          PaymentMethod(imageName: "paypay", paymentName: "PayPay", paymentChannel: .paypay)]
 
         priceLabel.text = "JPY ¥" + priceData
 
@@ -143,4 +146,3 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.endEditing(true)
     }
 }
-

@@ -6,6 +6,7 @@ def elepay_pods
   project 'ELEPayExample.xcodeproj'
 
   pod 'ElePay'
+  pod 'ElePay-ChinesePayments-Plugin'
 end
 
 target 'ELEPayExample' do

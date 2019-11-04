@@ -1,1 +1,2 @@
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ElePay.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ElePay_ChinesePayments_Plugin.framework

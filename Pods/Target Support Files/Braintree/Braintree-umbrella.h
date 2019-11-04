@@ -11,6 +11,7 @@
 #endif
 
 #import "BraintreeCard.h"
+#import "BTAuthenticationInsight.h"
 #import "BTCard.h"
 #import "BTCardClient.h"
 #import "BTCardNonce.h"

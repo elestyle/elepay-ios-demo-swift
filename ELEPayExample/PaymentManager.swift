@@ -20,6 +20,7 @@ public enum PaymentChannel: String {
     case paypal = "paypal"
     case linepay = "linepay"
     case paidy = "paidy"
+    case paypay = "paypay"
 }
 
 public class PaymentManager: NSObject {
@@ -125,7 +126,13 @@ public class PaymentManager: NSObject {
                 #endif
 
                 let success = ElePay.handlePayment(chargeData: result!, viewController: viewController) { paymentResult in
-                    
+//                var card = ElePayCardParams()
+//                card.number = "4000000000000101"
+//                card.expYear = 24
+//                card.expMonth = 12
+//                card.cvc = "424"
+//
+//                let success = ElePay.handlePayment(chargeData: result!, cardParams: card, viewController: viewController) { paymentResult in
                     var alert: UIAlertController? = nil
                     switch (paymentResult) {
                     case .succeeded(_):

@@ -5,6 +5,7 @@
 #import <BraintreeCore/BraintreeCore.h>
 #endif
 #import "BTThreeDSecureInfo.h"
+#import "BTAuthenticationInsight.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable, readonly, copy) NSString *lastTwo;
 
 /**
+ The BIN number of the card, if available.
+ */
+@property (nonatomic, nullable, readonly, copy) NSString *bin;
+
+/**
  The BIN data for the card number associated with this nonce.
  */
 @property (nonatomic, readonly, strong) BTBinData *binData;
@@ -32,6 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
  The 3D Secure info for the card number associated with this nonce.
  */
 @property (nonatomic, readonly, strong) BTThreeDSecureInfo *threeDSecureInfo;
+
+/**
+ Details about the regulatory environment and applicable customer authentication regulation
+ for a potential transaction. This can be used to make an informed decision whether to perform
+ 3D Secure authentication.
+ */
+@property (nonatomic, nullable, readonly, strong) BTAuthenticationInsight *authenticationInsight;
 
 @end
 

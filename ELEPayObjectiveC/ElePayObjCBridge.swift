@@ -25,16 +25,16 @@ final public class ElePayObjCBridge: NSObject {
     public static func handlePaymentEvent(payload: String, senderViewController sender: UIViewController) -> Bool {
         return ElePay.handlePayment(chargeJSON: payload, viewController: sender) { (paymentResult) in
             switch (paymentResult) {
-            case .succeeded(_):
-                print("Payment Succeed")
-            case .cancelled(_):
-                print("Canceled by user")
-            case let .failed(_, error):
+            case let .succeeded(paymentId):
+                print("Payment ID: \(paymentId), Payment Succeed")
+            case let .cancelled(paymentId):
+                print("Payment ID: \(paymentId), Canceled by user")
+            case let .failed(paymentId, error):
                 switch (error) {
-                case .alreadyMakingPayment(let paymentId):
+                case let .alreadyMakingPayment(paymentId):
                     print("Already making payment: \(paymentId)")
                 default:
-                    print("Make Payment Failed \(String(describing: error.errorDescription))")
+                    print("Payment ID: \(paymentId ?? ""), Make Payment Failed \(String(describing: error.errorDescription))")
                 }
             }
         }

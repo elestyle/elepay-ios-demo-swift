@@ -99,13 +99,13 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-UI-Localization.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-Drop-In-Localization.bundle"
-  install_resource "${PODS_ROOT}/ElePay/ElePay.framework/AlipaySDK.bundle"
+  install_resource "${PODS_ROOT}/Stripe/InternalFrameworks/Stripe3DS2.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-UI-Localization.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-Drop-In-Localization.bundle"
-  install_resource "${PODS_ROOT}/ElePay/ElePay.framework/AlipaySDK.bundle"
+  install_resource "${PODS_ROOT}/Stripe/InternalFrameworks/Stripe3DS2.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle"
 fi
 
