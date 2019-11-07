@@ -1,28 +1,5 @@
 PODS:
-  - Braintree (4.30.0):
-    - Braintree/Card (= 4.30.0)
-    - Braintree/Core (= 4.30.0)
-    - Braintree/PayPal (= 4.30.0)
-    - Braintree/UI (= 4.30.0)
-  - Braintree/Card (4.30.0):
-    - Braintree/Core
-  - Braintree/Core (4.30.0)
-  - Braintree/PayPal (4.30.0):
-    - Braintree/Core
-    - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.30.0):
-    - Braintree/Core
-    - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.30.0):
-    - Braintree/Core
-    - Braintree/PayPalDataCollector
-    - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.30.0)
-  - Braintree/UI (4.30.0):
-    - Braintree/Card
-    - Braintree/Core
-  - ElePay (1.6.0):
-    - Braintree (= 4.30.0)
+  - ElePay (1.6.1):
     - Stripe (= 17.0.2)
   - ElePay-ChinesePayments-Plugin (1.1.0)
   - Stripe (17.0.2)
@@ -33,14 +10,12 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Braintree
     - ElePay
     - ElePay-ChinesePayments-Plugin
     - Stripe
 
 SPEC CHECKSUMS:
-  Braintree: 6c7b531ed255701cc69666a2f02d1324a2d95c41
-  ElePay: e65df133fb2a374821f61e1cc65c881095ce89d6
+  ElePay: 9c59c69ed71874a78493c19dc05d9ee58f4bb381
   ElePay-ChinesePayments-Plugin: cf5e8cc637a9aacface9eeb5dfb53a52b0f46fc1
   Stripe: 6c9ab10f087ca76c3cd7311462e383434921bdf8
 

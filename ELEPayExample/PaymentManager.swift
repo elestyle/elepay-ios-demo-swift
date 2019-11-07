@@ -51,11 +51,11 @@ public class PaymentManager: NSObject {
             chargeURL = userServerURL
         }
         var postRequest = URLRequest(url: URL(string: chargeURL)!)   // It's your response to make sure your URL string is safe to convert to URL
-        var body: [String: Any] = ["paymentMethod": channel.rawValue, "amount": amount]
+        var body: [String: Any] = ["paymentMethod": channel.rawValue, "amount": Int(amount)!]
         if useLocalServer {
             // Directly create charge from your App.
             // WARNING! Do NOT use this way in production environment. Because secret key is required which you should NEVER keep in your App.
-            body["orderNo"] = UUID.init().uuidString
+            body["orderNo"] = UUID.init().uuidString.prefix(20)
             body["description"] = "Demo App directly charge"
 
             if channel == .paidy {
@@ -105,7 +105,7 @@ public class PaymentManager: NSObject {
                 
                 guard let httpResponse = response as? HTTPURLResponse else { return }
 
-                if error != nil || httpResponse.statusCode != 200 || result == nil {
+                if error != nil || (httpResponse.statusCode / 100) != 2 || result == nil {
                     var message: String = "Make Payment Failed: \(error?.localizedDescription ?? String(httpResponse.statusCode))"
                     if let errorJSON = (try? JSONSerialization.jsonObject(with: result!, options: [])) as? [String: Any],
                         let errorCode = errorJSON["code"] as? String,
