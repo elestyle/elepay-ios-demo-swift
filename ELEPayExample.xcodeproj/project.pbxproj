@@ -20,7 +20,9 @@
 		329E05B6210CF02B006BAD91 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329E05B5210CF02B006BAD91 /* SettingsBundleHelper.swift */; };
 		32ECCD50209DBF4800954AE9 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCD4F209DBF4800954AE9 /* PaymentManager.swift */; };
 		32ECCD52209EFF5C00954AE9 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECCD51209EFF5C00954AE9 /* LoadingIndicator.swift */; };
-		9F2912F2330682AA47D30248 /* libPods-ELEPayExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A706E6AFB733477E3C1EA49 /* libPods-ELEPayExample.a */; };
+		7551EF8903D1C0FB4F9E5F28 /* Pods_ELEPayExample_ELEPayExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185B447D3AE870BE9FDF2E18 /* Pods_ELEPayExample_ELEPayExampleUITests.framework */; };
+		8B0C0BB1B349AAE6738E5D86 /* Pods_ELEPayExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DA9F86221642E23D641DD8 /* Pods_ELEPayExample.framework */; };
+		AAEAFC970B46892C1322495A /* Pods_ELEPayExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ACFCE5F403E6E8E275B1A4 /* Pods_ELEPayExampleTests.framework */; };
 		B1566ADB2123C02300278195 /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1566ADA2123C02300278195 /* ProductListCell.swift */; };
 		B17A96BC21230FA800779940 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A96BB21230FA800779940 /* ProductListViewController.swift */; };
 		B17A96C02123100700779940 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A96BF2123100700779940 /* Product.swift */; };
@@ -58,8 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0E21F247046804F3EFF0CA41 /* libPods-ELEPayExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		169DEE20163545DF06F63592 /* libPods-ELEPayExample2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExample2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		185B447D3AE870BE9FDF2E18 /* Pods_ELEPayExample_ELEPayExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELEPayExample_ELEPayExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20185E39613B6C81083626AA /* Pods-ELEPayExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample.debug.xcconfig"; sourceTree = "<group>"; };
 		323489E5221D46CE009EEBE5 /* ElePayObjCBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElePayObjCBridge.swift; sourceTree = "<group>"; };
 		323ACC2D212D6A62006ED0B7 /* SettingFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SettingFiles; sourceTree = "<group>"; };
@@ -80,12 +82,17 @@
 		329E05B5210CF02B006BAD91 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		32ECCD4F209DBF4800954AE9 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		32ECCD51209EFF5C00954AE9 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
-		6A706E6AFB733477E3C1EA49 /* libPods-ELEPayExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELEPayExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		512AA61D08EE0F8C7352FA48 /* Pods-ELEPayExample-ELEPayExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExample-ELEPayExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8DE53D8159A0406A69D8739E /* Pods-ELEPayExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample.release.xcconfig"; sourceTree = "<group>"; };
+		B0DA9F86221642E23D641DD8 /* Pods_ELEPayExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELEPayExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1566ADA2123C02300278195 /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		B17A96BB21230FA800779940 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		B17A96BF2123100700779940 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B1AF9657212402F500BA1529 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		F221A62F033A357671D6F655 /* Pods-ELEPayExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExampleTests/Pods-ELEPayExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F39132489E3FE0EF5389079F /* Pods-ELEPayExample-ELEPayExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExample-ELEPayExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4ACFCE5F403E6E8E275B1A4 /* Pods_ELEPayExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELEPayExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F545A126A89879A9282A3449 /* Pods-ELEPayExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELEPayExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELEPayExampleTests/Pods-ELEPayExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F2912F2330682AA47D30248 /* libPods-ELEPayExample.a in Frameworks */,
+				8B0C0BB1B349AAE6738E5D86 /* Pods_ELEPayExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEAFC970B46892C1322495A /* Pods_ELEPayExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7551EF8903D1C0FB4F9E5F28 /* Pods_ELEPayExample_ELEPayExampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,9 +204,10 @@
 		A04F1D4734B7B6A84B928F00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A706E6AFB733477E3C1EA49 /* libPods-ELEPayExample.a */,
 				169DEE20163545DF06F63592 /* libPods-ELEPayExample2.a */,
-				0E21F247046804F3EFF0CA41 /* libPods-ELEPayExampleTests.a */,
+				B0DA9F86221642E23D641DD8 /* Pods_ELEPayExample.framework */,
+				185B447D3AE870BE9FDF2E18 /* Pods_ELEPayExample_ELEPayExampleUITests.framework */,
+				F4ACFCE5F403E6E8E275B1A4 /* Pods_ELEPayExampleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,6 +234,10 @@
 			children = (
 				20185E39613B6C81083626AA /* Pods-ELEPayExample.debug.xcconfig */,
 				8DE53D8159A0406A69D8739E /* Pods-ELEPayExample.release.xcconfig */,
+				F39132489E3FE0EF5389079F /* Pods-ELEPayExample-ELEPayExampleUITests.debug.xcconfig */,
+				512AA61D08EE0F8C7352FA48 /* Pods-ELEPayExample-ELEPayExampleUITests.release.xcconfig */,
+				F221A62F033A357671D6F655 /* Pods-ELEPayExampleTests.debug.xcconfig */,
+				F545A126A89879A9282A3449 /* Pods-ELEPayExampleTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -241,7 +255,6 @@
 				329D25B9209D8FE90000003B /* Resources */,
 				32123C1821189E4700C0F09E /* Build Number ++ */,
 				32D580B8219C03C60075AFE5 /* Embed Frameworks */,
-				7DAAB393698E0394560CB348 /* [CP] Copy Pods Resources */,
 				AD7EC8A8F581134B20F6151C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -257,6 +270,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 329D25E6209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExampleTests" */;
 			buildPhases = (
+				BC0BE5F0343BD9BBDC885C8F /* [CP] Check Pods Manifest.lock */,
 				329D25CB209D8FEA0000003B /* Sources */,
 				329D25CC209D8FEA0000003B /* Frameworks */,
 				329D25CD209D8FEA0000003B /* Resources */,
@@ -275,9 +289,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 329D25E9209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExampleUITests" */;
 			buildPhases = (
+				B4567950A4597E80F600A1F9 /* [CP] Check Pods Manifest.lock */,
 				329D25D6209D8FEA0000003B /* Sources */,
 				329D25D7209D8FEA0000003B /* Frameworks */,
 				329D25D8209D8FEA0000003B /* Resources */,
+				A8F5F821048F2DC2E590144B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -381,23 +397,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 2)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi\n";
 		};
-		7DAAB393698E0394560CB348 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9C39ABD985A819453B51B385 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -420,6 +419,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A8F5F821048F2DC2E590144B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AD7EC8A8F581134B20F6151C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,6 +451,50 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4567950A4597E80F600A1F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ELEPayExample-ELEPayExampleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC0BE5F0343BD9BBDC885C8F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ELEPayExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -680,6 +740,7 @@
 		};
 		329D25E7209D8FEA0000003B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F221A62F033A357671D6F655 /* Pods-ELEPayExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -703,6 +764,7 @@
 		};
 		329D25E8209D8FEA0000003B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F545A126A89879A9282A3449 /* Pods-ELEPayExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -726,6 +788,7 @@
 		};
 		329D25EA209D8FEA0000003B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F39132489E3FE0EF5389079F /* Pods-ELEPayExample-ELEPayExampleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -748,6 +811,7 @@
 		};
 		329D25EB209D8FEA0000003B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 512AA61D08EE0F8C7352FA48 /* Pods-ELEPayExample-ELEPayExampleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

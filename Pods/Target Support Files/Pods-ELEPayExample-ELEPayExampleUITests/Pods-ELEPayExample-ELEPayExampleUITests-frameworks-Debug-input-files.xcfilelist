@@ -1,4 +1,4 @@
-${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh
+${PODS_ROOT}/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests-frameworks.sh
 ${PODS_ROOT}/ElePay/ElePay.framework
 ${PODS_ROOT}/ElePay-ChinesePayments-Plugin/ElePay_ChinesePayments_Plugin.framework
 ${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework

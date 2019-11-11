@@ -1,0 +1,6 @@
+framework module Pods_ELEPayExample {
+  umbrella header "Pods-ELEPayExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

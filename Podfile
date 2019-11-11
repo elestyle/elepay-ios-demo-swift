@@ -1,14 +1,22 @@
-platform :ios, '9.0'
-
-def elepay_pods
-  use_modular_headers!
-
-  project 'ELEPayExample.xcodeproj'
-
-  pod 'ElePay'
-  pod 'ElePay-ChinesePayments-Plugin'
-end
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.1'
+project 'ELEPayExample.xcodeproj'
 
 target 'ELEPayExample' do
-  elepay_pods
+  # アプリのサイズを最適化するため、elepayはdynamic frameworks形式のみ対応しています
+  use_frameworks!
+
+  # Pods for ELEPayExample
+  pod 'ElePay'
+  pod 'ElePay-ChinesePayments-Plugin'
+
+  target 'ELEPayExampleTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'ELEPayExampleUITests' do
+    # Pods for testing
+  end
+
 end
