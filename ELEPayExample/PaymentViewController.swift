@@ -19,26 +19,10 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var priceData: String = ""
     
-    fileprivate struct PaymentMethod {
-        var imageName: String
-        var paymentName: String
-        var paymentChannel: PaymentChannel
-    }
-    fileprivate var paymentMethods: [PaymentMethod] = []
+    fileprivate var paymentChannels: [PaymentChannel] = PaymentChannel.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        paymentMethods = [PaymentMethod(imageName: "alipay", paymentName: "Alipay", paymentChannel: .alipay),
-                          PaymentMethod(imageName: "wechat", paymentName: "WeChat", paymentChannel: .wechat),
-                          PaymentMethod(imageName: "creditcard", paymentName: "Credit Card", paymentChannel: .creditcard),
-                          PaymentMethod(imageName: "applepay", paymentName: "Apple Pay", paymentChannel: .applepay),
-                          PaymentMethod(imageName: "unionpay", paymentName: "Union Pay", paymentChannel: .unionpay),
-                          PaymentMethod(imageName: "applepay", paymentName: "Apple Pay China", paymentChannel: .applepaycn),
-                          PaymentMethod(imageName: "paypal", paymentName: "PayPal", paymentChannel: .paypal),
-                          PaymentMethod(imageName: "linepay", paymentName: "Line Pay", paymentChannel: .linepay),
-                          PaymentMethod(imageName: "paidy", paymentName: "Paidy", paymentChannel: .paidy),
-                          PaymentMethod(imageName: "paypay", paymentName: "PayPay", paymentChannel: .paypay)]
 
         priceLabel.text = "JPY ¥" + priceData
 
@@ -101,7 +85,7 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         showLoadingIndicator()
         PaymentManager.makeCharge(amount: priceData.replacingOccurrences(of: ",", with: ""),
-                                  channel: paymentMethods[selectedRowIndex].paymentChannel,
+                                  channel: paymentChannels[selectedRowIndex],
                                   viewController: self)
     }
 
@@ -115,15 +99,15 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return paymentMethods.count
+        return paymentChannels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentMethodTableViewCell", for: indexPath)
 
-        let paymentMethod = paymentMethods[indexPath.row]
-        cell.imageView?.image = UIImage(named: paymentMethod.imageName)
-        cell.textLabel?.text = paymentMethod.paymentName
+        let channel = paymentChannels[indexPath.row]
+        cell.imageView?.image = channel.iconName
+        cell.textLabel?.text = channel.paymentName
         cell.tintColor = UIColor.elepayGreen
         if tableView.indexPathForSelectedRow?.row == indexPath.row {
             cell.accessoryType = .checkmark

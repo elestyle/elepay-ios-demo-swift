@@ -10,7 +10,7 @@ import ElePay
 import UIKit
 import PassKit
 
-public enum PaymentChannel: String {
+public enum PaymentChannel: String, CaseIterable {
     case wechat = "wechat"
     case alipay = "alipay"
     case creditcard = "creditcard"
@@ -21,6 +21,36 @@ public enum PaymentChannel: String {
     case linepay = "linepay"
     case paidy = "paidy"
     case paypay = "paypay"
+    
+    var paymentName: String {
+        switch self {
+        case .wechat:     return "WeChat"
+        case .alipay:     return "Alipay"
+        case .creditcard: return "Credit Card"
+        case .unionpay:   return "Union Pay"
+        case .applepay:   return "Apple Pay"
+        case .applepaycn: return "Apple Pay China"
+        case .paypal:     return "PayPal"
+        case .linepay:    return "Line Pay"
+        case .paidy:      return "Paidy"
+        case .paypay:     return "PayPay"
+        }
+    }
+    
+    var iconName: UIImage? {
+        switch self {
+        case .wechat:     return UIImage(named: "wechat")
+        case .alipay:     return UIImage(named: "alipay")
+        case .creditcard: return UIImage(named: "creditcard")
+        case .unionpay:   return UIImage(named: "unionpay")
+        case .applepay:   return UIImage(named: "applepay")
+        case .applepaycn: return UIImage(named: "applepay")
+        case .paypal:     return UIImage(named: "paypal")
+        case .linepay:    return UIImage(named: "linepay")
+        case .paidy:      return UIImage(named: "paidy")
+        case .paypay:     return UIImage(named: "paypay")
+        }
+    }
 }
 
 public class PaymentManager: NSObject {
