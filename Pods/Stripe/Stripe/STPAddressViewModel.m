@@ -38,7 +38,7 @@
             case STPBillingAddressFieldsNone:
                 _addressCells = @[];
                 break;
-            case STPBillingAddressFieldsZip:
+            case STPBillingAddressFieldsPostalCode:
                 _addressCells = @[
                                   // Postal code cell will be added later if necessary
                                   ];
@@ -48,10 +48,10 @@
                                   [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeName contents:@"" lastInList:NO delegate:self],
                                   [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeLine1 contents:@"" lastInList:NO delegate:self],
                                   [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeLine2 contents:@"" lastInList:NO delegate:self],
+                                  [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeCountry contents:_addressFieldTableViewCountryCode lastInList:NO delegate:self],
                                   // Postal code cell will be added here later if necessary
                                   [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeCity contents:@"" lastInList:NO delegate:self],
-                                  [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeState contents:@"" lastInList:NO delegate:self],
-                                  [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeCountry contents:_addressFieldTableViewCountryCode lastInList:YES delegate:self],
+                                  [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeState contents:@"" lastInList:YES delegate:self],
                                   ];
                 break;
             case STPBillingAddressFieldsName:
@@ -83,10 +83,10 @@
                                              [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeName contents:@"" lastInList:NO delegate:self],
                                              [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeLine1 contents:@"" lastInList:NO delegate:self],
                                              [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeLine2 contents:@"" lastInList:NO delegate:self],
+                                             [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeCountry contents:_addressFieldTableViewCountryCode lastInList:NO delegate:self],
                                              // Postal code cell will be added here later if necessary
                                              [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeCity contents:@"" lastInList:NO delegate:self],
                                              [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeState contents:@"" lastInList:NO delegate:self],
-                                             [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeCountry contents:_addressFieldTableViewCountryCode lastInList:NO delegate:self],
                                              ] mutableCopy];
             if ([requiredShippingAddressFields containsObject:STPContactFieldName]) {
                 [postalCells removeObjectAtIndex:0];
@@ -119,15 +119,10 @@
 }
 
 - (void)updatePostalCodeCellIfNecessary {
+    [self.delegate addressViewModelWillUpdate:self];
     BOOL shouldBeShowingPostalCode = [STPPostalCodeValidator postalCodeIsRequiredForCountryCode:self.addressFieldTableViewCountryCode];
     if (shouldBeShowingPostalCode && !self.showingPostalCodeCell) {
-        if (self.isBillingAddress && self.requiredBillingAddressFields == STPBillingAddressFieldsZip) {
-            self.addressCells = @[
-                                  [[STPAddressFieldTableViewCell alloc] initWithType:STPAddressFieldTypeZip contents:@"" lastInList:YES delegate:self]
-                                  ];
-            [self.delegate addressViewModel:self addedCellAtIndex:0];
-            [self.delegate addressViewModelDidChange:self];
-        } else if (self.containsStateAndPostalFields) {
+        if (self.containsStateAndPostalFields) {
             // Add before city
             NSUInteger stateFieldIndex = [self.addressCells indexOfObjectPassingTest:^BOOL(STPAddressFieldTableViewCell * _Nonnull obj, NSUInteger __unused idx, BOOL * _Nonnull __unused stop) {
                 return (obj.type == STPAddressFieldTypeCity);
@@ -145,11 +140,7 @@
             }
         }
     } else if (!shouldBeShowingPostalCode && self.showingPostalCodeCell) {
-        if (self.isBillingAddress && self.requiredBillingAddressFields == STPBillingAddressFieldsZip) {
-            self.addressCells = @[];
-            [self.delegate addressViewModel:self removedCellAtIndex:0];
-            [self.delegate addressViewModelDidChange:self];
-        } else if (self.containsStateAndPostalFields) {
+        if (self.containsStateAndPostalFields) {
             NSUInteger zipFieldIndex = [self.addressCells indexOfObjectPassingTest:^BOOL(STPAddressFieldTableViewCell * _Nonnull obj, NSUInteger __unused idx, BOOL * _Nonnull __unused stop) {
                 return (obj.type == STPAddressFieldTypeZip);
             }];
@@ -164,6 +155,7 @@
         }
     }
     self.showingPostalCodeCell = shouldBeShowingPostalCode;
+    [self.delegate addressViewModelDidUpdate:self];
 }
 
 - (BOOL)containsStateAndPostalFields {
@@ -255,6 +247,9 @@
 
 - (BOOL)isValid {
     if (self.isBillingAddress) {
+        if (self.requiredBillingAddressFields == STPBillingAddressFieldsPostalCode) {
+            return YES; // The AddressViewModel is only for address fields. Determining whether the postal code is present is up to the STPCardTextFieldViewModel.
+        }
         return [self.address containsRequiredFields:self.requiredBillingAddressFields];
     } else {
         return [self.address containsRequiredShippingAddressFields:self.requiredShippingAddressFields];
@@ -343,7 +338,7 @@
         }
     }
     // Prefer to use the contents of STPAddressFieldTypeCountry, but fallback to
-    // `addressFieldTableViewCountryCode` if nil (important for STPBillingAddressFieldsZip)
+    // `addressFieldTableViewCountryCode` if nil (important for STPBillingAddressFieldsPostalCode)
     address.country = address.country ?: self.addressFieldTableViewCountryCode;
     return address;
 }

@@ -1,11 +1,11 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## ElePay
+## ElepaySDK
 
 Copyright 2019 ELESTYLE, Inc. All Rights Reserved.
 
-## ElePay-ChinesePayments-Plugin
+## Elepay_ChinesePayments_Plugin
 
 Copyright 2019 ELESTYLE, Inc. All Rights Reserved.
 

@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-artifacts.sh
+${PODS_ROOT}/ElepaySDK/ElepaySDK.xcframework
+${PODS_ROOT}/Elepay_ChinesePayments_Plugin/Elepay_ChinesePayments_Plugin.xcframework

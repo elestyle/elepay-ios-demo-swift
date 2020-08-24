@@ -6,7 +6,7 @@
 //  Copyright © 2018 ELESTYLE, Inc. All rights reserved.
 //
 
-import ElePay
+import ElepaySDK
 import UIKit
 
 @UIApplicationMain
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if key.isEmpty {
             fatalError("Test Mode Key not set")
         }
-        ElePay.initApp(key: key, apiURLString: APIURLSetting)
+        Elepay.initApp(key: key, apiURLString: APIURLSetting)
         
         return true
     }
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         // Let elepay Handle Result Callback from 3rd party payment Apps first.
-        if (ElePay.handleOpenURL(url, options: options)) {
+        if (Elepay.handleOpenURL(url, options: options)) {
             // When ELEPay has already handled the URL, make sure your code returns here.
             return true;
         }

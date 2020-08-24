@@ -14,6 +14,7 @@
 #import "STPCardValidator+Private.h"
 #import "STPDelegateProxy.h"
 #import "STPPhoneNumberValidator.h"
+#import "STPStringUtils.h"
 
 @interface STPTextFieldDelegateProxy : STPDelegateProxy<UITextFieldDelegate>
 @property (nonatomic, assign) STPFormTextFieldAutoFormattingBehavior autoformattingBehavior;
@@ -132,8 +133,7 @@ typedef NSAttributedString* (^STPFormTextTransformationBlock)(NSAttributedString
                     return [inputString copy];
                 }
                 NSMutableAttributedString *attributedString = [inputString mutableCopy];
-                STPCardBrand currentBrand = [STPCardValidator brandForNumber:attributedString.string];
-                NSArray<NSNumber *> *cardNumberFormat = [STPCardValidator cardNumberFormatForBrand:currentBrand];
+                NSArray<NSNumber *> *cardNumberFormat = [STPCardValidator cardNumberFormatForCardNumber:attributedString.string];
 
                 NSUInteger index = 0;
                 for (NSNumber *segmentLength in cardNumberFormat) {
@@ -260,6 +260,8 @@ typedef NSAttributedString* (^STPFormTextTransformationBlock)(NSAttributedString
 - (void)paste:(id)sender {
     if (self.preservesContentsOnPaste) {
         [super paste:sender];
+    } else if (self.autoFormattingBehavior == STPFormTextFieldAutoFormattingBehaviorExpiration) {
+        self.text = [STPStringUtils expirationDateStringFromString:[UIPasteboard generalPasteboard].string];
     } else {
         self.text = [UIPasteboard generalPasteboard].string;
     }

@@ -181,7 +181,7 @@ STPContactField const STPContactFieldName = @"STPContactFieldName";
     switch (requiredFields) {
         case STPBillingAddressFieldsNone:
             return YES;
-        case STPBillingAddressFieldsZip:
+        case STPBillingAddressFieldsPostalCode:
             return ([STPPostalCodeValidator validationStateForPostalCode:self.postalCode
                                                              countryCode:self.country] == STPCardValidationStateValid);
         case STPBillingAddressFieldsFull:
@@ -196,7 +196,7 @@ STPContactField const STPContactFieldName = @"STPContactFieldName";
     switch (desiredFields) {
         case STPBillingAddressFieldsNone:
             return NO;
-        case STPBillingAddressFieldsZip:
+        case STPBillingAddressFieldsPostalCode:
             return self.postalCode.length > 0;
         case STPBillingAddressFieldsFull:
             return [self hasPartialPostalAddress];
@@ -256,11 +256,13 @@ STPContactField const STPContactFieldName = @"STPContactFieldName";
             || self.postalCode.length > 0);
 }
 
+#if !(defined(TARGET_OS_MACCATALYST) && (TARGET_OS_MACCATALYST != 0))
+
 + (PKAddressField)applePayAddressFieldsFromBillingAddressFields:(STPBillingAddressFields)billingAddressFields {
     switch (billingAddressFields) {
         case STPBillingAddressFieldsNone:
             return PKAddressFieldNone;
-        case STPBillingAddressFieldsZip:
+        case STPBillingAddressFieldsPostalCode:
         case STPBillingAddressFieldsFull:
             return PKAddressFieldPostalAddress;
         case STPBillingAddressFieldsName:
@@ -285,6 +287,20 @@ STPContactField const STPContactFieldName = @"STPContactFieldName";
         }
     }
     return addressFields;
+}
+
+#endif
+
++ (NSSet<PKContactField> *)applePayContactFieldsFromBillingAddressFields:(STPBillingAddressFields)billingAddressFields API_AVAILABLE(ios(11.0)) {
+    switch (billingAddressFields) {
+        case STPBillingAddressFieldsNone:
+            return [NSSet setWithArray:@[]];
+        case STPBillingAddressFieldsPostalCode:
+        case STPBillingAddressFieldsFull:
+            return [NSSet setWithArray:@[PKContactFieldName, PKContactFieldPostalAddress]];
+        case STPBillingAddressFieldsName:
+            return [NSSet setWithArray:@[PKContactFieldName]];
+    }
 }
 
 + (NSSet<PKContactField> *)pkContactFieldsFromStripeContactFields:(NSSet<STPContactField> *)contactFields API_AVAILABLE(ios(11.0)) {

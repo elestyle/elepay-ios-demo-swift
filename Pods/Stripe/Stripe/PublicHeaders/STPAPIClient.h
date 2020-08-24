@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current version of this library.
  */
-static NSString *const STPSDKVersion = @"17.0.2";
+static NSString *const STPSDKVersion = @"19.1.1";
 
 @class STPBankAccount, STPBankAccountParams, STPCard, STPCardParams, STPConnectAccountParams;
 @class STPPaymentConfiguration, STPPaymentIntentParams, STPSourceParams, STPToken, STPPaymentMethodParams;
@@ -32,8 +32,8 @@ static NSString *const STPSDKVersion = @"17.0.2";
 /**
  Set your Stripe API key with this method. New instances of STPAPIClient will be initialized with this value. You should call this method as early as
  possible in your application's lifecycle, preferably in your AppDelegate.
-
- @param   publishableKey Your publishable key, obtained from https://stripe.com/account/apikeys
+ 
+ @param   publishableKey Your publishable key, obtained from https://dashboard.stripe.com/apikeys
  @warning Make sure not to ship your test API keys to the App Store! This will log a warning if you use your test key in a release build.
  */
 + (void)setDefaultPublishableKey:(NSString *)publishableKey;
@@ -43,6 +43,24 @@ static NSString *const STPSDKVersion = @"17.0.2";
  */
 + (nullable NSString *)defaultPublishableKey;
 
+/**
+ A Boolean value that determines whether additional device data is sent to Stripe for fraud prevention.
+ 
+ Returns YES if the Stripe SDK is collecting additional device data for fraud prevention.
+ For more details on the information we collect, visit https://stripe.com/docs/disputes/prevention/advanced-fraud-detection
+ The default value is YES.
+ */
++ (BOOL)advancedFraudSignalsEnabled;
+
+/**
+ Set whether additional device data is sent to Stripe for fraud prevention.
+ 
+ @param   enabled If YES, additional device signals will be sent to Stripe.
+ For more details on the information we collect, visit https://stripe.com/docs/disputes/prevention/advanced-fraud-detection
+ Disabling this setting will reduce Stripe's ability to protect your business from fraudulent payments.
+ */
++ (void)setAdvancedFraudSignalsEnabled:(BOOL)enabled;
+
 @end
 
 /**
@@ -51,19 +69,12 @@ static NSString *const STPSDKVersion = @"17.0.2";
 @interface STPAPIClient : NSObject
 
 /**
- A shared singleton API client. Its API key will be initially equal to [Stripe defaultPublishableKey].
+ A shared singleton API client.
+ 
+ By default, the SDK uses this instance to make API requests
+ eg in STPPaymentHandler, STPPaymentContext, STPCustomerContext, etc.
  */
 + (instancetype)sharedClient;
-
-
-/**
- Initializes an API client with the given configuration. Its API key will be
- set to the configuration's publishable key.
-
- @param configuration The configuration to use.
- @return An instance of STPAPIClient.
- */
-- (instancetype)initWithConfiguration:(STPPaymentConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 /**
  Initializes an API client with the given publishable key.
@@ -75,11 +86,15 @@ static NSString *const STPSDKVersion = @"17.0.2";
 
 /**
  The client's publishable key.
+ 
+ The default value is [Stripe defaultPublishableKey].
  */
 @property (nonatomic, copy, nullable) NSString *publishableKey;
 
 /**
  The client's configuration.
+ 
+ Defaults to [STPPaymentConfiguration sharedConfiguration].
  */
 @property (nonatomic, copy) STPPaymentConfiguration *configuration;
 
@@ -133,6 +148,14 @@ static NSString *const STPSDKVersion = @"17.0.2";
  @param completion  The callback to run with the returned Stripe token (and any errors that may have occurred).
  */
 - (void)createTokenWithPersonalIDNumber:(NSString *)pii completion:(__nullable STPTokenCompletionBlock)completion;
+
+/**
+Converts the last 4 SSN digits into a Stripe token using the Stripe API.
+
+@param ssnLast4 The last 4 digits of the user's SSN. Cannot be nil.
+@param completion  The callback to run with the returned Stripe token (and any errors that may have occurred).
+*/
+- (void)createTokenWithSSNLast4:(NSString *)ssnLast4 completion:(STPTokenCompletionBlock)completion;
 
 @end
 
@@ -470,6 +493,23 @@ static NSString *const STPSDKVersion = @"17.0.2";
  @return YES if the URL is expected and will be handled by Stripe. NO otherwise.
  */
 + (BOOL)handleStripeURLCallbackWithURL:(NSURL *)url;
+
+@end
+
+#pragma mark - Deprecated
+
+/**
+ Deprecated STPAPIClient methods
+ */
+@interface STPAPIClient (Deprecated)
+
+/**
+ Initializes an API client with the given configuration.
+
+ @param configuration The configuration to use.
+ @return An instance of STPAPIClient.
+ */
+- (instancetype)initWithConfiguration:(STPPaymentConfiguration *)configuration DEPRECATED_MSG_ATTRIBUTE("This initializer previously configured publishableKey and stripeAccount via the STPPaymentConfiguration instance. This behavior is deprecated; set the STPAPIClient configuration, publishableKey, and stripeAccount properties directly on the STPAPIClient instead.");
 
 @end
 

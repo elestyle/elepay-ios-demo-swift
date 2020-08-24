@@ -1,24 +1,24 @@
 PODS:
-  - ElePay (1.6.1):
-    - Stripe (= 17.0.2)
-  - ElePay-ChinesePayments-Plugin (1.1.0)
-  - Stripe (17.0.2)
+  - Elepay_ChinesePayments_Plugin (2.0.0)
+  - ElepaySDK (2.1.4):
+    - Stripe (= 19.1.1)
+  - Stripe (19.1.1)
 
 DEPENDENCIES:
-  - ElePay
-  - ElePay-ChinesePayments-Plugin
+  - Elepay_ChinesePayments_Plugin
+  - ElepaySDK
 
 SPEC REPOS:
   trunk:
-    - ElePay
-    - ElePay-ChinesePayments-Plugin
+    - Elepay_ChinesePayments_Plugin
+    - ElepaySDK
     - Stripe
 
 SPEC CHECKSUMS:
-  ElePay: 9c59c69ed71874a78493c19dc05d9ee58f4bb381
-  ElePay-ChinesePayments-Plugin: cf5e8cc637a9aacface9eeb5dfb53a52b0f46fc1
-  Stripe: 6c9ab10f087ca76c3cd7311462e383434921bdf8
+  Elepay_ChinesePayments_Plugin: 69b7995b30820fd13f16bddc39affcc107200357
+  ElepaySDK: a40ead4b4af4edf301b57ab703b46cec12e182f0
+  Stripe: e4599b6570d82548c62b8d6b7b200241856a2be7
 
-PODFILE CHECKSUM: 6c4cab69717ed235bcc40705a63a48ddabce9750
+PODFILE CHECKSUM: afa945ff3614f91f09addd41cab235638fdd3e4a
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

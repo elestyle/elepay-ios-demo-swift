@@ -18,7 +18,7 @@
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
-			<string>ElePay</string>
+			<string>ElepaySDK</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
@@ -28,7 +28,7 @@
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
-			<string>ElePay-ChinesePayments-Plugin</string>
+			<string>Elepay_ChinesePayments_Plugin</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

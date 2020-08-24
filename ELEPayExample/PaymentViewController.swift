@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ElePay
+import ElepaySDK
 
 class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

@@ -22,8 +22,10 @@
 
 @implementation STPPaymentConfiguration
 
+@synthesize publishableKey = _publishableKey;
+@synthesize stripeAccount = _stripeAccount;
+
 + (void)initialize {
-    [STPAnalyticsClient initializeIfNeeded];
     [STPTelemetryClient sharedInstance];
 }
 
@@ -39,8 +41,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _additionalPaymentOptions = STPPaymentOptionTypeAll;
-        _requiredBillingAddressFields = STPBillingAddressFieldsNone;
+        _additionalPaymentOptions = STPPaymentOptionTypeDefault;
+        _requiredBillingAddressFields = STPBillingAddressFieldsPostalCode;
         _requiredShippingAddressFields = nil;
         _verifyPrefilledShippingAddress = YES;
         _shippingType = STPShippingTypeShipping;
@@ -73,8 +75,8 @@
 - (NSString *)description {
     NSString *additionalPaymentOptionsDescription;
 
-    if (self.additionalPaymentOptions == STPPaymentOptionTypeAll) {
-        additionalPaymentOptionsDescription = @"STPPaymentOptionTypeAll";
+    if (self.additionalPaymentOptions == STPPaymentOptionTypeDefault) {
+        additionalPaymentOptionsDescription = @"STPPaymentOptionTypeDefault";
     } else if (self.additionalPaymentOptions == STPPaymentOptionTypeNone) {
         additionalPaymentOptionsDescription = @"STPPaymentOptionTypeNone";
     } else {
@@ -84,6 +86,10 @@
             [paymentOptions addObject:@"STPPaymentOptionTypeApplePay"];
         }
 
+        if (self.additionalPaymentOptions & STPPaymentOptionTypeFPX) {
+            [paymentOptions addObject:@"STPPaymentOptionTypeFPX"];
+        }
+        
         additionalPaymentOptionsDescription = [paymentOptions componentsJoinedByString:@"|"];
     }
 
@@ -93,8 +99,8 @@
         case STPBillingAddressFieldsNone:
             requiredBillingAddressFieldsDescription = @"STPBillingAddressFieldsNone";
             break;
-        case STPBillingAddressFieldsZip:
-            requiredBillingAddressFieldsDescription = @"STPBillingAddressFieldsZip";
+        case STPBillingAddressFieldsPostalCode:
+            requiredBillingAddressFieldsDescription = @"STPBillingAddressFieldsPostalCode";
             break;
         case STPBillingAddressFieldsFull:
             requiredBillingAddressFieldsDescription = @"STPBillingAddressFieldsFull";
@@ -122,7 +128,6 @@
                        [NSString stringWithFormat:@"%@: %p", NSStringFromClass([self class]), self],
 
                        // Basic configuration
-                       [NSString stringWithFormat:@"publishableKey = %@", (self.publishableKey) ? @"<redacted>" : nil],
                        [NSString stringWithFormat:@"additionalPaymentOptions = %@", additionalPaymentOptionsDescription],
 
                        // Billing and shipping
@@ -145,7 +150,6 @@
 
 - (id)copyWithZone:(__unused NSZone *)zone {
     STPPaymentConfiguration *copy = [self.class new];
-    copy.publishableKey = self.publishableKey;
     copy.additionalPaymentOptions = self.additionalPaymentOptions;
     copy.requiredBillingAddressFields = self.requiredBillingAddressFields;
     copy.requiredShippingAddressFields = self.requiredShippingAddressFields;
@@ -155,7 +159,47 @@
     copy.appleMerchantIdentifier = self.appleMerchantIdentifier;
     copy.canDeletePaymentOptions = self.canDeletePaymentOptions;
     copy.availableCountries = _availableCountries;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
+    copy.publishableKey = self.publishableKey;
+    copy.stripeAccount = self.stripeAccount;
+#pragma clang diagnostic pop
+    
     return copy;
+}
+
+#pragma mark - Deprecated
+
+// For legacy reasons, we'll try to keep the same behavior as before if setting these properties on the singleton.
+
+- (void)setPublishableKey:(NSString *)publishableKey {
+    if (self == [STPPaymentConfiguration sharedConfiguration]) {
+        [STPAPIClient sharedClient].publishableKey = publishableKey;
+    } else {
+        _publishableKey = [publishableKey copy];
+    }
+}
+
+- (NSString *)publishableKey {
+    if (self == [STPPaymentConfiguration sharedConfiguration]) {
+        return [STPAPIClient sharedClient].publishableKey;
+    }
+    return _publishableKey;
+}
+
+- (void)setStripeAccount:(NSString *)stripeAccount {
+    if (self == [STPPaymentConfiguration sharedConfiguration]) {
+        [STPAPIClient sharedClient].stripeAccount = stripeAccount;
+    } else {
+        _stripeAccount = [stripeAccount copy];
+    }
+}
+
+- (NSString *)stripeAccount {
+    if (self == [STPPaymentConfiguration sharedConfiguration]) {
+        return [STPAPIClient sharedClient].stripeAccount;
+    }
+    return _stripeAccount;
 }
 
 @end

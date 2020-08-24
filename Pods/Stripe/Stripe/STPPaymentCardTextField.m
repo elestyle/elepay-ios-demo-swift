@@ -19,6 +19,7 @@
 #import "STPPostalCodeValidator.h"
 #import "Stripe.h"
 #import "STPLocalizationUtils.h"
+#import "STPAnalyticsClient.h"
 
 @interface STPPaymentCardTextField()<STPFormTextFieldDelegate>
 
@@ -104,6 +105,10 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
 
 #pragma mark initializers
 
++ (void)initialize {
+    [[STPAnalyticsClient sharedClient] addClassToProductUsageIfNecessary:[self class]];
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -126,6 +131,7 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     _borderColor = [self.class placeholderGrayColor];
     _cornerRadius = 5.0f;
     _borderWidth = 1.0f;
+    
     self.layer.borderColor = [[_borderColor copy] CGColor];
     self.layer.cornerRadius = _cornerRadius;
     self.layer.borderWidth = _borderWidth;
@@ -145,11 +151,9 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     self.brandImageView = brandImageView;
     
     STPFormTextField *numberField = [self buildTextField];
-    if (@available(iOS 10.0, *)) {
-        // This does not offer quick-type suggestions (as iOS 11.2), but does pick
-        // the best keyboard (maybe other, hidden behavior?)
-        numberField.textContentType = UITextContentTypeCreditCardNumber;
-    }
+    // This does not offer quick-type suggestions (as iOS 11.2), but does pick
+    // the best keyboard (maybe other, hidden behavior?)
+    numberField.textContentType = UITextContentTypeCreditCardNumber;
     numberField.autoFormattingBehavior = STPFormTextFieldAutoFormattingBehaviorCardNumbers;
     numberField.tag = STPCardFieldTypeNumber;
     numberField.accessibilityLabel = STPLocalizedString(@"card number", @"accessibility label for text field");
@@ -174,14 +178,13 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     self.cvcField.accessibilityLabel = [self defaultCVCPlaceholder];
 
     STPFormTextField *postalCodeField = [self buildTextField];
-    if (@available(iOS 10.0, *)) {
-        postalCodeField.textContentType = UITextContentTypePostalCode;
-    }
+    postalCodeField.textContentType = UITextContentTypePostalCode;
     postalCodeField.tag = STPCardFieldTypePostalCode;
     postalCodeField.alpha = 0;
     postalCodeField.isAccessibilityElement = NO;
+    postalCodeField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     self.postalCodeField = postalCodeField;
-    // Placeholder and appropriate keyboard typeare set by country code setter
+    // Placeholder is set by country code setter
 
     UIView *fieldsView = [[UIView alloc] init];
     fieldsView.clipsToBounds = YES;
@@ -208,6 +211,9 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     self.focusedTextFieldForLayout = nil;
     [self updateCVCPlaceholder];
     [self resetSubviewEditingTransitionState];
+    
+    self.viewModel.postalCodeRequested = YES;
+    self.countryCode = [[NSLocale autoupdatingCurrentLocale] objectForKey:NSLocaleCountryCode];
 }
 
 - (STPPaymentCardTextFieldViewModel *)viewModel {
@@ -360,11 +366,7 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
 }
 
 - (void)setPostalCodeEntryEnabled:(BOOL)postalCodeEntryEnabled {
-    self.viewModel.postalCodeRequired = postalCodeEntryEnabled;
-    if (postalCodeEntryEnabled
-        && !self.countryCode) {
-        self.countryCode = [[NSLocale autoupdatingCurrentLocale] objectForKey:NSLocaleCountryCode];
-    }
+    self.viewModel.postalCodeRequested = postalCodeEntryEnabled;
 }
 
 - (BOOL)postalCodeEntryEnabled {
@@ -380,12 +382,6 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
 
     self.viewModel.postalCodeCountryCode = countryCode;
     [self updatePostalFieldPlaceholder];
-
-    if ([countryCode isEqualToString:@"US"]) {
-        self.postalCodeField.keyboardType = UIKeyboardTypePhonePad;
-    } else {
-        self.postalCodeField.keyboardType = UIKeyboardTypeDefault;
-    }
 
     // This will revalidate and reformat
     [self setText:self.postalCode inField:STPCardFieldTypePostalCode];
@@ -552,6 +548,7 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     [super resignFirstResponder];
     BOOL success = [self.currentFirstResponderField resignFirstResponder];
     [self layoutViewsToFocusField:nil
+             becomeFirstResponder:NO
                          animated:YES
                        completion:nil];
     [self updateImageForFieldType:STPCardFieldTypeNumber];
@@ -582,6 +579,7 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     [self updateCVCPlaceholder];
     __weak typeof(self) weakSelf = self;
     [self layoutViewsToFocusField:@(STPCardFieldTypePostalCode)
+             becomeFirstResponder:YES
                          animated:YES
                        completion:^(__unused BOOL completed){
         __strong typeof(self) strongSelf = weakSelf;
@@ -694,6 +692,7 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
         }
     } else {
         [self layoutViewsToFocusField:nil
+                 becomeFirstResponder:YES
                              animated:NO
                            completion:nil];
     }
@@ -747,7 +746,7 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     }
 
     STPCardBrand currentBrand = [STPCardValidator brandForNumber:cardNumber];
-    NSArray<NSNumber *> *sortedCardNumberFormat = [[STPCardValidator cardNumberFormatForBrand:currentBrand] sortedArrayUsingSelector:@selector(unsignedIntegerValue)];
+    NSArray<NSNumber *> *sortedCardNumberFormat = [[STPCardValidator cardNumberFormatForCardNumber:cardNumber] sortedArrayUsingSelector:@selector(unsignedIntegerValue)];
     NSUInteger fragmentLength = [STPCardValidator fragmentLengthForCardBrand:currentBrand];
     NSUInteger maxLength = MAX([[sortedCardNumberFormat lastObject] unsignedIntegerValue], fragmentLength);
 
@@ -794,20 +793,21 @@ CGFloat const STPPaymentCardTextFieldMinimumPadding = 10;
     } else if ([self.countryCode.uppercaseString isEqualToString:@"US"]) {
         // This format matches ZIP+4 which is currently disabled since it is
         // not used for billing, but could be useful for future shipping addr purposes
-        return [self widthForText:@"88888-8888"];
+        return [self widthForText:@"88888-8888 "];
     } else {
         // This format more closely matches the typical max UK/Canadian size which is our most common non-US market currently
-        return [self widthForText:@"888 8888"];
+        return [self widthForText:@"888 8888 "];
     }
 }
 
 - (CGFloat)postalCodeFieldCompressedWidth {
     CGFloat maxTextWidth = 0;
     if ([self.countryCode.uppercaseString isEqualToString:@"US"]) {
-        maxTextWidth = [self widthForText:@"88888"];
+        // The QuickType ZIP suggestion adds a space at the end, so we will too for calculating our bounds
+        maxTextWidth = [self widthForText:@"88888 "];
     } else {
         // This format more closely matches the typical max UK/Canadian size which is our most common non-US market currently
-        maxTextWidth = [self widthForText:@"888 8888"];
+        maxTextWidth = [self widthForText:@"888 8888 "];
     }
 
     CGFloat placeholderWidth = [self widthForText:[self defaultPostalFieldPlaceholderForCountryCode:self.countryCode]];
@@ -1064,9 +1064,9 @@ typedef NS_ENUM(NSInteger, STPCardTextFieldState) {
 
         BOOL hasEnteredCardNumber = self.cardNumber.length > 0;
         NSString *compressedCardNumber = self.viewModel.compressedCardNumber;
-        NSString *cardNumberToHide = [(hasEnteredCardNumber ? self.cardNumber : self.viewModel.defaultPlaceholder) stp_stringByRemovingSuffix:compressedCardNumber];
+        NSString *cardNumberToHide = [(hasEnteredCardNumber ? self.cardNumber : self.numberPlaceholder) stp_stringByRemovingSuffix:compressedCardNumber];
 
-        if (cardNumberToHide.length > 0) {
+        if (cardNumberToHide.length > 0 && [STPCardValidator stringIsNumeric:cardNumberToHide]) {
             width = hasEnteredCardNumber ? [self widthForCardNumber:self.cardNumber] : [self numberFieldFullWidth];
 
             CGFloat hiddenWidth = [self widthForCardNumber:cardNumberToHide];
@@ -1078,7 +1078,7 @@ typedef NS_ENUM(NSInteger, STPCardTextFieldState) {
             maskView.backgroundColor = [UIColor blackColor];
             #ifdef __IPHONE_13_0
                 if (@available(iOS 13.0, *)) {
-                    maskView.backgroundColor = [UIColor systemBackgroundColor];
+                    maskView.backgroundColor = [UIColor labelColor];
                 }
             #endif
             maskView.opaque = YES;
@@ -1142,11 +1142,7 @@ typedef NS_ENUM(NSInteger, STPCardTextFieldState) {
     STPFormTextField *textField = [[STPFormTextField alloc] initWithFrame:CGRectZero];
     textField.backgroundColor = [UIColor clearColor];
     // setCountryCode: updates the postalCodeField keyboardType, this is safe
-    if (@available(iOS 10, *)) {
-        textField.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
-    } else {
-        textField.keyboardType = UIKeyboardTypePhonePad;
-    }
+    textField.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
     textField.textAlignment = NSTextAlignmentLeft;
     textField.font = self.font;
     textField.defaultColor = self.textColor;
@@ -1159,6 +1155,7 @@ typedef NS_ENUM(NSInteger, STPCardTextFieldState) {
 
 typedef void (^STPLayoutAnimationCompletionBlock)(BOOL completed);
 - (void)layoutViewsToFocusField:(NSNumber *)focusedField
+           becomeFirstResponder:(BOOL)shouldBecomeFirstResponder
                        animated:(BOOL)animated
                      completion:(STPLayoutAnimationCompletionBlock)completion {
 
@@ -1168,7 +1165,9 @@ typedef void (^STPLayoutAnimationCompletionBlock)(BOOL completed);
         && ![self.focusedTextFieldForLayout isEqualToNumber:@(STPCardFieldTypeNumber)]
         && ([self.viewModel validationStateForField:STPCardFieldTypeNumber] != STPCardValidationStateValid)) {
         fieldtoFocus = @(STPCardFieldTypeNumber);
-        [self.numberField becomeFirstResponder];
+        if (shouldBecomeFirstResponder) {
+            [self.numberField becomeFirstResponder];
+        }
     }
 
     if ((fieldtoFocus == nil && self.focusedTextFieldForLayout == nil)
@@ -1400,6 +1399,7 @@ typedef NS_ENUM(NSInteger, STPFieldEditingTransitionCallSite) {
     BOOL isMidSubviewEditingTransition = [self getAndUpdateSubviewEditingTransitionStateFromCall:STPFieldEditingTransitionCallSiteDidBegin];
 
     [self layoutViewsToFocusField:@(textField.tag)
+             becomeFirstResponder:YES
                          animated:YES
                        completion:nil];
 
@@ -1472,6 +1472,7 @@ typedef NS_ENUM(NSInteger, STPFieldEditingTransitionCallSite) {
 
     if (!isMidSubviewEditingTransition) {
         [self layoutViewsToFocusField:nil
+                 becomeFirstResponder:NO
                              animated:YES
                            completion:nil];
         [self updateImageForFieldType:STPCardFieldTypeNumber];

@@ -6,18 +6,21 @@
 //  Copyright © 2019 Stripe, Inc. All rights reserved.
 //
 
-#import "STPCardValidator+Private.h"
 #import "STPPaymentMethodParams.h"
+
+#import "STPCardValidator+Private.h"
+#import "STPFormEncoder.h"
+#import "STPFPXBankBrand.h"
+#import "STPImageLibrary+Private.h"
+#import "STPLocalizationUtils.h"
 #import "STPPaymentMethod+Private.h"
+#import "STPPaymentMethodCardParams.h"
 #import "STPPaymentMethodFPX.h"
 #import "STPPaymentMethodFPXParams.h"
 #import "STPPaymentMethodiDEAL.h"
 #import "STPPaymentMethodiDEALParams.h"
-#import "STPImageLibrary+Private.h"
-#import "STPFPXBankBrand.h"
-#import "STPPaymentMethodCardParams.h"
-#import "STPLocalizationUtils.h"
-#import "STPFormEncoder.h"
+#import "STPPaymentMethodSEPADebitParams.h"
+#import "STPPaymentMethodBacsDebit.h"
 
 @implementation STPPaymentMethodParams
 
@@ -50,6 +53,26 @@
     return params;
 }
 
++ (nullable STPPaymentMethodParams *)paramsWithSEPADebit:(STPPaymentMethodSEPADebitParams *)sepaDebit
+billingDetails:(STPPaymentMethodBillingDetails *)billingDetails
+                                                metadata:(nullable NSDictionary<NSString *, NSString *> *)metadata {
+    STPPaymentMethodParams *params = [self new];
+    params.type = STPPaymentMethodTypeSEPADebit;
+    params.sepaDebit = sepaDebit;
+    params.billingDetails = billingDetails;
+    params.metadata = metadata;
+    return params;
+}
+
++ (STPPaymentMethodParams *)paramsWithBacsDebit:(STPPaymentMethodBacsDebitParams *)bacsDebit billingDetails:(STPPaymentMethodBillingDetails *)billingDetails metadata:(NSDictionary<NSString *,NSString *> *)metadata {
+    STPPaymentMethodParams *params = [self new];
+    params.type = STPPaymentMethodTypeBacsDebit;
+    params.bacsDebit = bacsDebit;
+    params.billingDetails = billingDetails;
+    params.metadata = metadata;
+        return params;
+}
+
 + (nullable STPPaymentMethodParams *)paramsWithSingleUsePaymentMethod:(STPPaymentMethod *)paymentMethod {
     STPPaymentMethodParams *params = [self new];
     switch ([paymentMethod type]) {
@@ -73,6 +96,8 @@
             params.metadata = paymentMethod.metadata;
             break;
         }
+        case STPPaymentMethodTypeSEPADebit:
+        case STPPaymentMethodTypeBacsDebit:
         case STPPaymentMethodTypeCard:
         case STPPaymentMethodTypeCardPresent:
         case STPPaymentMethodTypeUnknown:
@@ -104,8 +129,63 @@
              NSStringFromSelector(@selector(card)): @"card",
              NSStringFromSelector(@selector(iDEAL)): @"ideal",
              NSStringFromSelector(@selector(fpx)): @"fpx",
+             NSStringFromSelector(@selector(sepaDebit)): @"sepa_debit",
+             NSStringFromSelector(@selector(bacsDebit)): @"bacs_debit",
              NSStringFromSelector(@selector(metadata)): @"metadata",
              };
+}
+
+#pragma mark - STPPaymentOption
+
+- (UIImage *)image {
+    if (self.type == STPPaymentMethodTypeCard && self.card != nil) {
+        STPCardBrand brand = [STPCardValidator brandForNumber:self.card.number];
+        return [STPImageLibrary brandImageForCardBrand:brand];
+    } else {
+        return [STPImageLibrary brandImageForCardBrand:STPCardBrandUnknown];
+    }}
+
+- (UIImage *)templateImage {
+    if (self.type == STPPaymentMethodTypeCard && self.card != nil) {
+        STPCardBrand brand = [STPCardValidator brandForNumber:self.card.number];
+        return [STPImageLibrary templatedBrandImageForCardBrand:brand];
+    } else if (self.type == STPPaymentMethodTypeFPX) {
+        return [STPImageLibrary bankIcon];
+    } else {
+        return [STPImageLibrary templatedBrandImageForCardBrand:STPCardBrandUnknown];
+    }
+}
+
+- (NSString *)label {
+    switch (self.type) {
+        case STPPaymentMethodTypeCard:
+            if (self.card != nil) {
+                STPCardBrand brand = [STPCardValidator brandForNumber:self.card.number];
+                NSString *brandString = STPStringFromCardBrand(brand);
+                return [NSString stringWithFormat:@"%@ %@", brandString, self.card.last4];
+            } else {
+                return STPStringFromCardBrand(STPCardBrandUnknown);
+            }
+        case STPPaymentMethodTypeiDEAL:
+            return @"iDEAL";
+        case STPPaymentMethodTypeFPX:
+            if (self.fpx != nil) {
+                return STPStringFromFPXBankBrand(self.fpx.bank);
+            } else {
+                return @"FPX";
+            }
+        case STPPaymentMethodTypeSEPADebit:
+            return @"SEPA Debit";
+        case STPPaymentMethodTypeBacsDebit:
+            return @"Bacs Debit";
+        case STPPaymentMethodTypeCardPresent:
+        case STPPaymentMethodTypeUnknown:
+            return STPLocalizedString(@"Unknown", @"Default missing source type label");
+    }
+}
+
+- (BOOL)isReusable {
+    return (self.type == STPPaymentMethodTypeCard);
 }
 
 @end

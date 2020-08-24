@@ -7,7 +7,9 @@
 //
 
 #import "STPCustomerContext.h"
+#import "STPCustomerContext+Private.h"
 
+#import "STPAnalyticsClient.h"
 #import "STPAPIClient+Private.h"
 #import "STPCustomer+Private.h"
 #import "STPEphemeralKey.h"
@@ -17,34 +19,46 @@
 #import "STPPaymentMethodCardWallet.h"
 #import "STPDispatchFunctions.h"
 
+/// Stores the key we use in NSUserDefaults to save a dictionary of Customer id to their last selected payment method ID
+static NSString *const kLastSelectedPaymentMethodDefaultsKey = @"com.stripe.lib:STPStripeCustomerToLastSelectedPaymentMethodKey";
+
 static NSTimeInterval const CachedCustomerMaxAge = 60;
 
 @interface STPCustomerContext ()
 
-@property (nonatomic) STPAPIClient *apiClient;
 @property (nonatomic) STPCustomer *customer;
 @property (nonatomic) NSDate *customerRetrievedDate;
 @property (nonatomic, copy) NSArray<STPPaymentMethod *> *paymentMethods;
 @property (nonatomic) NSDate *paymentMethodsRetrievedDate;
 @property (nonatomic) STPEphemeralKeyManager *keyManager;
+@property (nonatomic) STPAPIClient *apiClient;
 
 @end
 
 @implementation STPCustomerContext
 @synthesize paymentMethods=_paymentMethods;
 
++ (void)initialize{
+    [[STPAnalyticsClient sharedClient] addClassToProductUsageIfNecessary:[self class]];
+}
+
 - (instancetype)initWithKeyProvider:(nonnull id<STPCustomerEphemeralKeyProvider>)keyProvider {
+    return [self initWithKeyProvider:keyProvider apiClient:[STPAPIClient sharedClient]];
+}
+
+- (instancetype)initWithKeyProvider:(id<STPCustomerEphemeralKeyProvider>)keyProvider apiClient:(STPAPIClient *)apiClient {
     STPEphemeralKeyManager *keyManager = [[STPEphemeralKeyManager alloc] initWithKeyProvider:keyProvider
 
                                                                                   apiVersion:[STPAPIClient apiVersion] performsEagerFetching:YES];
-    return [self initWithKeyManager:keyManager];
+    return [self initWithKeyManager:keyManager apiClient:apiClient];
 }
 
-- (instancetype)initWithKeyManager:(nonnull STPEphemeralKeyManager *)keyManager {
+- (instancetype)initWithKeyManager:(nonnull STPEphemeralKeyManager *)keyManager apiClient:(STPAPIClient *)apiClient {
     self = [self init];
     if (self) {
         _keyManager = keyManager;
         _includeApplePayPaymentMethods = NO;
+        _apiClient = apiClient;
         [self retrieveCustomer:nil];
         [self listPaymentMethodsForCustomerWithCompletion:nil];
     }
@@ -130,7 +144,7 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
             }
             return;
         }
-        [STPAPIClient retrieveCustomerUsingKey:ephemeralKey completion:^(STPCustomer *customer, NSError *error) {
+        [self.apiClient retrieveCustomerUsingKey:ephemeralKey completion:^(STPCustomer *customer, NSError *error) {
             if (customer) {
                 [customer updateSourcesFilteringApplePay:!self.includeApplePayPaymentMethods];
                 self.customer = customer;
@@ -157,7 +171,7 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
         NSMutableDictionary *params = [NSMutableDictionary new];
         params[@"shipping"] = [STPAddress shippingInfoForChargeWithAddress:shipping
                                                             shippingMethod:nil];
-        [STPAPIClient updateCustomerWithParameters:[params copy]
+        [self.apiClient updateCustomerWithParameters:[params copy]
                                           usingKey:ephemeralKey
                                         completion:^(STPCustomer *customer, NSError *error) {
                                             if (customer) {
@@ -184,7 +198,7 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
             return;
         }
         
-        [STPAPIClient attachPaymentMethod:paymentMethod.stripeId
+        [self.apiClient attachPaymentMethod:paymentMethod.stripeId
                        toCustomerUsingKey:ephemeralKey
                                completion:^(NSError *error) {
                                    [self clearCachedPaymentMethods];
@@ -208,7 +222,7 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
             return;
         }
         
-        [STPAPIClient detachPaymentMethod:paymentMethod.stripeId
+        [self.apiClient detachPaymentMethod:paymentMethod.stripeId
                      fromCustomerUsingKey:ephemeralKey
                                completion:^(NSError *error) {
                                    [self clearCachedPaymentMethods];
@@ -242,7 +256,7 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
             return;
         }
         
-        [STPAPIClient listPaymentMethodsForCustomerUsingKey:ephemeralKey completion:^(NSArray<STPPaymentMethod *> *paymentMethods, NSError *error) {
+        [self.apiClient listPaymentMethodsForCustomerUsingKey:ephemeralKey completion:^(NSArray<STPPaymentMethod *> *paymentMethods, NSError *error) {
             if (paymentMethods) {
                 self.paymentMethods = paymentMethods;
             }
@@ -252,6 +266,48 @@ static NSTimeInterval const CachedCustomerMaxAge = 60;
                 });
             }
         }];
+    }];
+}
+
+- (void)saveLastSelectedPaymentMethodIDForCustomer:(NSString *)paymentMethodID completion:(nullable STPErrorBlock)completion {
+    [self.keyManager getOrCreateKey:^(STPEphemeralKey *ephemeralKey, NSError *retrieveKeyError) {
+        if (retrieveKeyError) {
+            if (completion) {
+                stpDispatchToMainThreadIfNecessary(^{
+                    completion(retrieveKeyError);
+                });
+            }
+            return;
+        }
+        
+        NSMutableDictionary<NSString *, NSString *>* customerToDefaultPaymentMethodID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:kLastSelectedPaymentMethodDefaultsKey] mutableCopy] ?: [NSMutableDictionary new];
+        NSString *customerID = ephemeralKey.customerID;
+        
+        customerToDefaultPaymentMethodID[customerID] = [paymentMethodID copy];
+        [[NSUserDefaults standardUserDefaults] setObject:customerToDefaultPaymentMethodID forKey:kLastSelectedPaymentMethodDefaultsKey];
+        if (completion) {
+            stpDispatchToMainThreadIfNecessary(^{
+                completion(nil);
+            });
+        }
+    }];
+}
+
+- (void)retrieveLastSelectedPaymentMethodIDForCustomerWithCompletion:(void (^)(NSString * _Nullable, NSError * _Nullable))completion {
+    [self.keyManager getOrCreateKey:^(STPEphemeralKey *ephemeralKey, NSError *retrieveKeyError) {
+        if (retrieveKeyError) {
+            if (completion) {
+                stpDispatchToMainThreadIfNecessary(^{
+                    completion(nil, retrieveKeyError);
+                });
+            }
+            return;
+        }
+        
+        NSDictionary<NSString *, NSString *>* customerToDefaultPaymentMethodID = [[NSUserDefaults standardUserDefaults] dictionaryForKey:kLastSelectedPaymentMethodDefaultsKey];
+        stpDispatchToMainThreadIfNecessary(^{
+            completion(customerToDefaultPaymentMethodID[ephemeralKey.customerID], nil);
+        });
     }];
 }
 

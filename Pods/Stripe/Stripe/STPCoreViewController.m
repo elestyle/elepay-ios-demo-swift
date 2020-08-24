@@ -62,6 +62,8 @@
 
         self.stp_navigationItemProxy.leftBarButtonItem = self.cancelItem;
     }
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAppearance) name:UIContentSizeCategoryDidChangeNotification object:nil];
 }
 
 - (void)setTheme:(STPTheme *)theme {
@@ -76,7 +78,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+#if !(defined(TARGET_OS_MACCATALYST) && (TARGET_OS_MACCATALYST != 0))
     self.automaticallyAdjustsScrollViewInsets = YES;
+#endif
 
     [self createAndSetupViews];
     [self updateAppearance];

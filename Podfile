@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.1'
+platform :ios, '10.0'
 project 'ELEPayExample.xcodeproj'
 
 target 'ELEPayExample' do
@@ -7,8 +7,8 @@ target 'ELEPayExample' do
   use_frameworks!
 
   # Pods for ELEPayExample
-  pod 'ElePay'
-  pod 'ElePay-ChinesePayments-Plugin'
+  pod 'ElepaySDK'
+  pod 'Elepay_ChinesePayments_Plugin'
 
   target 'ELEPayExampleTests' do
     inherit! :search_paths

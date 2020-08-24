@@ -6,7 +6,7 @@
 //  Copyright © 2018 ELESTYLE, Inc. All rights reserved.
 //
 
-import ElePay
+import ElepaySDK
 import UIKit
 import PassKit
 
@@ -155,7 +155,7 @@ public class PaymentManager: NSObject {
                 }
                 #endif
 
-                let success = ElePay.handlePayment(chargeData: result!, viewController: viewController) { paymentResult in
+                let success = Elepay.handlePayment(chargeData: result!, viewController: viewController) { paymentResult in
 //                var card = ElePayCardParams()
 //                card.number = "4000000000000101"
 //                card.expYear = 24
@@ -171,6 +171,9 @@ public class PaymentManager: NSObject {
                         alert = UIAlertController(title: "Warning", message: "Payment Canceled \(paymentId)", preferredStyle: .alert)
                     case let .failed(_, error):
                         alert = UIAlertController(title: "Error", message: "Make Payment Failed \(String(describing: error.errorDescription))", preferredStyle: .alert)
+                    @unknown default:
+                        // handle newly added case here
+                        fatalError()
                     }
                     alert!.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     viewController.present(alert!, animated: true, completion: nil)

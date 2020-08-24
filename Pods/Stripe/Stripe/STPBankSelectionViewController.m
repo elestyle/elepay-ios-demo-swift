@@ -9,7 +9,9 @@
 #import "STPBankSelectionViewController.h"
 
 #import "NSArray+Stripe.h"
+#import "STPAnalyticsClient.h"
 #import "STPAPIClient+Private.h"
+#import "STPFPXBankStatusResponse.h"
 #import "STPColorUtils.h"
 #import "STPCoreTableViewController+Private.h"
 #import "STPDispatchFunctions.h"
@@ -27,16 +29,20 @@
 static NSString *const STPBankSelectionCellReuseIdentifier = @"STPBankSelectionCellReuseIdentifier";
 
 @interface STPBankSelectionViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic) STPAPIClient *apiClient;
 @property (nonatomic) STPBankSelectionMethod bankMethod;
 @property (nonatomic) STPFPXBankBrand selectedBank;
 @property (nonatomic) STPPaymentConfiguration *configuration;
 @property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic) STPSectionHeaderView *headerView;
 @property (nonatomic) BOOL loading;
+@property (nonatomic) STPFPXBankStatusResponse *bankStatus;
 @end
 
 @implementation STPBankSelectionViewController
+
++ (void)initialize{
+    [[STPAnalyticsClient sharedClient] addClassToProductUsageIfNecessary:[self class]];
+}
 
 - (instancetype)initWithBankMethod:(STPBankSelectionMethod)bankMethod {
     return [self initWithBankMethod:bankMethod configuration:[STPPaymentConfiguration sharedConfiguration] theme:[STPTheme defaultTheme]];
@@ -51,10 +57,26 @@ static NSString *const STPBankSelectionCellReuseIdentifier = @"STPBankSelectionC
         _bankMethod = bankMethod;
         _configuration = configuration;
         _selectedBank = STPFPXBankBrandUnknown;
-        _apiClient = [[STPAPIClient alloc] initWithConfiguration:configuration];
+        _apiClient = [STPAPIClient sharedClient];
+        if (bankMethod == STPBankSelectionMethodFPX) {
+            [self _refreshFPXStatus];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_refreshFPXStatus) name:UIApplicationDidBecomeActiveNotification object:nil];
+        }
         self.title = STPLocalizedString(@"Bank Account", @"Title for bank account selector");
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)_refreshFPXStatus {
+    [self.apiClient retrieveFPXBankStatusWithCompletion:^(STPFPXBankStatusResponse * _Nullable bankStatusResponse, NSError * _Nullable error) {
+        if (error == nil && bankStatusResponse != nil) {
+            [self _updateWithBankStatus:bankStatusResponse];
+        }
+    }];
 }
 
 - (void)createAndSetupViews {
@@ -64,6 +86,7 @@ static NSString *const STPBankSelectionCellReuseIdentifier = @"STPBankSelectionC
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView reloadData];
 }
 
 - (void)updateAppearance {
@@ -74,6 +97,14 @@ static NSString *const STPBankSelectionCellReuseIdentifier = @"STPBankSelectionC
 
 - (BOOL)useSystemBackButton {
     return YES;
+}
+
+- (void)_updateWithBankStatus:(STPFPXBankStatusResponse *)bankStatusResponse {
+    self.bankStatus = bankStatusResponse;
+    
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:self.tableView.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
 }
 
 #pragma mark - UITableView
@@ -91,7 +122,8 @@ static NSString *const STPBankSelectionCellReuseIdentifier = @"STPBankSelectionC
     STPBankSelectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:STPBankSelectionCellReuseIdentifier forIndexPath:indexPath];
     STPFPXBankBrand bankBrand = indexPath.row;
     BOOL selected = self.selectedBank == bankBrand;
-    [cell configureWithBank:bankBrand theme:self.theme selected:selected enabled:!self.loading];
+    BOOL offline = self.bankStatus && ![self.bankStatus bankBrandIsOnline:bankBrand];
+    [cell configureWithBank:bankBrand theme:self.theme selected:selected offline:offline enabled:!self.loading];
     return cell;
 }
 

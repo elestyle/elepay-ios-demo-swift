@@ -84,7 +84,6 @@ typedef NS_ERROR_ENUM(STPPaymentHandlerErrorDomain, STPPaymentHandlerErrorCode) 
 
     /**
      Payment requires a valid `STPAuthenticationContext`.  Make sure your presentingViewController isn't already presenting.
-     If you're using Apple Pay, you must implement `STPAuthenticationContext prepareAuthenticationContextForPresentation:`
      */
     STPPaymentHandlerRequiresAuthenticationContextErrorCode NS_SWIFT_NAME(requiresAuthenticationContext),
     
@@ -94,24 +93,30 @@ typedef NS_ERROR_ENUM(STPPaymentHandlerErrorDomain, STPPaymentHandlerErrorCode) 
      Inspect the `paymentIntent.lastPaymentError` or `setupIntent.lastSetupError` property.
      */
     STPPaymentHandlerPaymentErrorCode NS_SWIFT_NAME(payment),
+
+    /**
+     The provided PaymentIntent of SetupIntent client secret does not match the expected pattern for client secrets.
+
+     Make sure that your server is returning the correct value and that is being passed to `STPPaymentHandler`.
+     */
+    STPPaymentHandlerInvalidClientSecret NS_SWIFT_NAME(invalidClientSecret),
+
 } NS_SWIFT_NAME(STPPaymentHandlerError);
 
 
 /**
  Completion block typedef for use in `STPPaymentHandler` methods for Payment Intents.
  */
-typedef void (^STPPaymentHandlerActionPaymentIntentCompletionBlock)(STPPaymentHandlerActionStatus, STPPaymentIntent * _Nullable, NSError * _Nullable);
+typedef void (^STPPaymentHandlerActionPaymentIntentCompletionBlock)(STPPaymentHandlerActionStatus status, STPPaymentIntent * _Nullable paymentIntent, NSError * _Nullable error);
 
 /**
  Completion block typedef for use in `STPPaymentHandler` methods for Setup Intents.
  */
-typedef void (^STPPaymentHandlerActionSetupIntentCompletionBlock)(STPPaymentHandlerActionStatus, STPSetupIntent * _Nullable, NSError * _Nullable);
+typedef void (^STPPaymentHandlerActionSetupIntentCompletionBlock)(STPPaymentHandlerActionStatus status, STPSetupIntent * _Nullable setupIntent, NSError * _Nullable error);
 
 /**
  `STPPaymentHandler` is a utility class that confirms PaymentIntents/SetupIntents and handles any authentication required, such as 3DS1/3DS2 for Strong Customer Authentication.
  It can present authentication UI on top of your app or redirect users out of your app (to e.g. their banking app).
-
- @note If you're using Apple Pay, you must implement `STPAuthenticationContext prepareAuthenticationContextForPresentation:`.  See that method's docstring for more details.
 
  @see https://stripe.com/docs/mobile/ios/authentication
  */

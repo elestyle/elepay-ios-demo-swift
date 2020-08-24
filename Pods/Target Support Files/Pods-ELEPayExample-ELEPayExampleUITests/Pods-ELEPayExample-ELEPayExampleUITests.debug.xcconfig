@@ -1,9 +1,9 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Stripe" "${PODS_ROOT}/ElePay" "${PODS_ROOT}/ElePay-ChinesePayments-Plugin"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Stripe" "${PODS_ROOT}/ElepaySDK" "${PODS_ROOT}/ElepaySDK/ElepaySDK.xcframework/ios-armv7_arm64" "${PODS_ROOT}/ElepaySDK/ElepaySDK.xcframework/ios-x86_64_i386-simulator" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin/Elepay_ChinesePayments_Plugin.xcframework/ios-armv7_arm64" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin/Elepay_ChinesePayments_Plugin.xcframework/ios-i386_x86_64-simulator"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Stripe/InternalFrameworks"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "Contacts" -framework "CoreLocation" -framework "ElePay" -framework "ElePay_ChinesePayments_Plugin" -framework "Foundation" -framework "PassKit" -framework "Security" -framework "Stripe" -framework "WebKit"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "Contacts" -framework "CoreLocation" -framework "ElepaySDK" -framework "Elepay_ChinesePayments_Plugin" -framework "Foundation" -framework "PassKit" -framework "Security" -framework "Stripe" -framework "WebKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

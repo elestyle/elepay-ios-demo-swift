@@ -6,24 +6,24 @@
 //  Copyright © 2018 elestyle.jp. All rights reserved.
 //
 
-import ElePay
+import ElepaySDK
 
 @objc
 final public class ElePayObjCBridge: NSObject {
     @objc
     public static func initElePay(publicKey: String) {
-        ElePay.initApp(key: publicKey)
+        Elepay.initApp(key: publicKey)
     }
 
     @objc
     public static func handleOpenURL(_ url: URL) -> Bool {
-        return ElePay.handleOpenURL(url)
+        return Elepay.handleOpenURL(url)
     }
 
     @objc
     @discardableResult
     public static func handlePaymentEvent(payload: String, senderViewController sender: UIViewController) -> Bool {
-        return ElePay.handlePayment(chargeJSON: payload, viewController: sender) { (paymentResult) in
+        return Elepay.handlePayment(chargeJSON: payload, viewController: sender) { (paymentResult) in
             switch (paymentResult) {
             case let .succeeded(paymentId):
                 print("Payment ID: \(paymentId), Payment Succeed")
@@ -36,6 +36,9 @@ final public class ElePayObjCBridge: NSObject {
                 default:
                     print("Payment ID: \(paymentId ?? ""), Make Payment Failed \(String(describing: error.errorDescription))")
                 }
+            @unknown default:
+                // handle newly added case here
+                fatalError()
             }
         }
     }

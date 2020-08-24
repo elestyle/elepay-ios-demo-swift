@@ -250,6 +250,7 @@
 			buildConfigurationList = 329D25E3209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExample" */;
 			buildPhases = (
 				9C39ABD985A819453B51B385 /* [CP] Check Pods Manifest.lock */,
+				552DB89AB699E97EDFD885B8 /* [CP] Prepare Artifacts */,
 				329D25B7209D8FE90000003B /* Sources */,
 				329D25B8209D8FE90000003B /* Frameworks */,
 				329D25B9209D8FE90000003B /* Resources */,
@@ -290,6 +291,7 @@
 			buildConfigurationList = 329D25E9209D8FEA0000003B /* Build configuration list for PBXNativeTarget "ELEPayExampleUITests" */;
 			buildPhases = (
 				B4567950A4597E80F600A1F9 /* [CP] Check Pods Manifest.lock */,
+				897E08F9BC6769473DA93089 /* [CP] Prepare Artifacts */,
 				329D25D6209D8FEA0000003B /* Sources */,
 				329D25D7209D8FEA0000003B /* Frameworks */,
 				329D25D8209D8FEA0000003B /* Resources */,
@@ -396,6 +398,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 2)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi\n";
+		};
+		552DB89AB699E97EDFD885B8 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		897E08F9BC6769473DA93089 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELEPayExample-ELEPayExampleUITests/Pods-ELEPayExample-ELEPayExampleUITests-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		9C39ABD985A819453B51B385 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -619,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -679,7 +715,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

@@ -19,6 +19,7 @@
 @class STPSetupIntent;
 @class STPPaymentMethod;
 @class STPIssuingCardPin;
+@class STPFPXBankStatusResponse;
 
 /**
  These values control the labels used in the shipping info collection form.
@@ -230,8 +231,25 @@ typedef void (^STPPinCompletionBlock)(STPIssuingCardPin * __nullable cardPin, ST
 typedef void (^STP3DS2AuthenticateCompletionBlock)(STP3DS2AuthenticateResponse * _Nullable authenticateResponse, NSError * _Nullable error);
 
 /**
+ A callback to be run with a response from the Stripe API containing information about the online status of FPX banks.
+
+ @param bankStatusResponse    The response from Stripe containing the status of the various banks. Will be nil if an error occurs. @see STPFPXBankStatusResponse
+ @param error                   The error returned from the response, or nil if none occurs.
+ */
+typedef void (^STPFPXBankStatusCompletionBlock)(STPFPXBankStatusResponse * _Nullable bankStatusResponse, NSError * _Nullable error);
+
+/**
  A block called with a payment status and an optional error.
  
  @param error The error that occurred, if any.
  */
 typedef void (^STPPaymentStatusBlock)(STPPaymentStatus status, NSError * __nullable error);
+
+/**
+ A block to be run with the client secret of a PaymentIntent or SetupIntent.
+ 
+ @param clientSecret    The client secret of the PaymentIntent or SetupIntent. See https://stripe.com/docs/api/payment_intents/object#payment_intent_object-client_secret
+ @param error                    The error creating the Intent, or nil if none occurred.
+ */
+typedef void (^STPIntentClientSecretCompletionBlock)(NSString * __nullable clientSecret, NSError * __nullable error);
+
