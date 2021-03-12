@@ -53,12 +53,6 @@ typedef NS_ENUM(NSInteger, STPBankAccountStatus) {
 @interface STPBankAccount : NSObject<STPAPIResponseDecodable, STPSourceProtocol>
 
 /**
- You cannot directly instantiate an `STPBankAccount`. You should only use one 
- that has been returned from an `STPAPIClient` callback.
- */
-- (instancetype)init __attribute__((unavailable("You cannot directly instantiate an STPBankAccount. You should only use one that has been returned from an STPAPIClient callback.")));
-
-/**
  The routing number for the bank account. This should be the ACH routing number,
  not the wire routing number.
  */
@@ -101,18 +95,20 @@ typedef NS_ENUM(NSInteger, STPBankAccountStatus) {
 @property (nonatomic, nullable, readonly) NSString *fingerprint;
 
 /**
- A set of key/value pairs associated with the bank account object.
-
- @see https://stripe.com/docs/api#metadata
- */
-@property (nonatomic, copy, nullable, readonly) NSDictionary<NSString *, NSString *> *metadata;
-
-/**
  The validation status of the bank account. @see STPBankAccountStatus
  */
 @property (nonatomic, readonly) STPBankAccountStatus status;
 
 #pragma mark - Deprecated methods
+
+/**
+ A set of key/value pairs associated with the bank account object.
+ 
+ @deprecated Metadata is no longer returned to clients using publishable keys. Retrieve them on your server using yoursecret key instead.
+ 
+ @see https://stripe.com/docs/api#metadata
+ */
+@property (nonatomic, nullable, readonly) NSDictionary<NSString*, NSString *> *metadata DEPRECATED_MSG_ATTRIBUTE("Metadata is no longer returned to clients using publishable keys. Retrieve them on your server using yoursecret key instead.");
 
 /**
  The Stripe ID for the bank account.

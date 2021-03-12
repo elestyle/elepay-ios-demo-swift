@@ -1,24 +1,58 @@
 PODS:
+  - Braintree (4.37.0):
+    - Braintree/Card (= 4.37.0)
+    - Braintree/Core (= 4.37.0)
+    - Braintree/PayPal (= 4.37.0)
+    - Braintree/UI (= 4.37.0)
+  - Braintree/Card (4.37.0):
+    - Braintree/Core
+  - Braintree/Core (4.37.0)
+  - Braintree/PayPal (4.37.0):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.37.0):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.37.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.37.0)
+  - Braintree/UI (4.37.0):
+    - Braintree/Card
+    - Braintree/Core
   - Elepay_ChinesePayments_Plugin (2.0.0)
-  - ElepaySDK (2.1.4):
-    - Stripe (= 19.1.1)
-  - Stripe (19.1.1)
+  - ElepaySDK (2.3.4)
+  - Stripe (19.4.1)
 
 DEPENDENCIES:
+  - Braintree
   - Elepay_ChinesePayments_Plugin
   - ElepaySDK
+  - Stripe (from `https://github.com/stripe/stripe-ios.git`, tag `v19.4.1`)
 
 SPEC REPOS:
   trunk:
+    - Braintree
     - Elepay_ChinesePayments_Plugin
     - ElepaySDK
-    - Stripe
+
+EXTERNAL SOURCES:
+  Stripe:
+    :git: https://github.com/stripe/stripe-ios.git
+    :tag: v19.4.1
+
+CHECKOUT OPTIONS:
+  Stripe:
+    :git: https://github.com/stripe/stripe-ios.git
+    :tag: v19.4.1
 
 SPEC CHECKSUMS:
+  Braintree: e1f291d24a909bfbed88e86a0c3db76f26af9697
   Elepay_ChinesePayments_Plugin: 69b7995b30820fd13f16bddc39affcc107200357
-  ElepaySDK: a40ead4b4af4edf301b57ab703b46cec12e182f0
-  Stripe: e4599b6570d82548c62b8d6b7b200241856a2be7
+  ElepaySDK: 2ab6468405e7fcbb4bdd98c5816f7989128cee31
+  Stripe: 03e13dd1c55e59aeeb8614547700199ff1dc4e01
 
-PODFILE CHECKSUM: afa945ff3614f91f09addd41cab235638fdd3e4a
+PODFILE CHECKSUM: 498efbc2fc0c055984e9b88f4763d9103ab8d14b
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

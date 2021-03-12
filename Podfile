@@ -9,6 +9,8 @@ target 'ELEPayExample' do
   # Pods for ELEPayExample
   pod 'ElepaySDK'
   pod 'Elepay_ChinesePayments_Plugin'
+  pod 'Stripe', :git => 'https://github.com/stripe/stripe-ios.git', :tag => 'v19.4.1'
+  pod 'Braintree'
 
   target 'ELEPayExampleTests' do
     inherit! :search_paths

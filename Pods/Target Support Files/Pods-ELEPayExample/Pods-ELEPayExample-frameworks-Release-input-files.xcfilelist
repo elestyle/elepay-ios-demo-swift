@@ -1,3 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-ELEPayExample/Pods-ELEPayExample-frameworks.sh
-${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt
+${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework
 ${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ElepaySDK/ElepaySDK.framework/ElepaySDK
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Elepay_ChinesePayments_Plugin/Elepay_ChinesePayments_Plugin.framework/Elepay_ChinesePayments_Plugin

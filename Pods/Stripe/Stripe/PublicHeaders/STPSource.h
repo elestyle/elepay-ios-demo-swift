@@ -28,12 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface STPSource : NSObject<STPAPIResponseDecodable, STPSourceProtocol, STPPaymentOption>
 
 /**
- You cannot directly instantiate an `STPSource`. You should only use one that 
- has been returned from an `STPAPIClient` callback.
- */
-- (instancetype)init __attribute__((unavailable("You cannot directly instantiate an STPSource. You should only use one that has been returned from an STPAPIClient callback.")));
-
-/**
  The amount associated with the source.
  */
 @property (nonatomic, nullable, readonly) NSNumber *amount;
@@ -63,13 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  Whether or not this source was created in livemode.
  */
 @property (nonatomic, readonly) BOOL livemode;
-
-/**
- A set of key/value pairs associated with the source object.
-
- @see https://stripe.com/docs/api#metadata
- */
-@property (nonatomic, copy, nullable, readonly) NSDictionary<NSString *, NSString *> *metadata;
 
 /**
  Information about the owner of the payment instrument.
@@ -137,6 +124,17 @@ NS_ASSUME_NONNULL_BEGIN
  contents of the `details` dictionary.
  */
 @property (nonatomic, nullable, readonly) STPSourceWeChatPayDetails *weChatPayDetails;
+
+#pragma mark - Deprecated
+
+/**
+ A set of key/value pairs associated with the source object.
+ 
+ @deprecated Metadata is no longer returned to clients using publishable keys. Retrieve them on your server using yoursecret key instead.
+ 
+ @see https://stripe.com/docs/api#metadata
+ */
+@property (nonatomic, nullable, readonly) NSDictionary<NSString*, NSString *> *metadata DEPRECATED_MSG_ATTRIBUTE("Metadata is no longer returned to clients using publishable keys. Retrieve them on your server using yoursecret key instead.");
 
 @end
 

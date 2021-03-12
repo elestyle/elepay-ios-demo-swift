@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class STPIntentAction, STPPaymentIntentLastPaymentError;
+@class STPIntentAction, STPPaymentIntentLastPaymentError, STPPaymentIntentShippingDetails;
 
 /**
  A PaymentIntent tracks the process of collecting a payment from your customer.
@@ -23,12 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
  @see https://stripe.com/docs/payments/dynamic-authentication
  */
 @interface STPPaymentIntent : NSObject<STPAPIResponseDecodable>
-
-/**
- You cannot directly instantiate an `STPPaymentIntent`. You should only use one that
- has been returned from an `STPAPIClient` callback.
- */
-- (instancetype)init __attribute__((unavailable("You cannot directly instantiate an STPPaymentIntent. You should only use one that has been returned from an STPAPIClient callback.")));
 
 /**
  The Stripe ID of the PaymentIntent.
@@ -122,6 +116,11 @@ NS_ASSUME_NONNULL_BEGIN
  The payment error encountered in the previous PaymentIntent confirmation.
  */
 @property (nonatomic, nullable, readonly) STPPaymentIntentLastPaymentError *lastPaymentError;
+
+/**
+ Shipping information for this PaymentIntent.
+ */
+@property (nonatomic, nullable, readonly) STPPaymentIntentShippingDetails *shipping;
 
 #pragma mark - Deprecated
 

@@ -1,9 +1,20 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Stripe" "${PODS_ROOT}/ElepaySDK" "${PODS_ROOT}/ElepaySDK/ElepaySDK.xcframework/ios-armv7_arm64" "${PODS_ROOT}/ElepaySDK/ElepaySDK.xcframework/ios-x86_64_i386-simulator" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin/Elepay_ChinesePayments_Plugin.xcframework/ios-armv7_arm64" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin/Elepay_ChinesePayments_Plugin.xcframework/ios-i386_x86_64-simulator"
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
+EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))
+EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
+EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_$(XCODE_PRODUCT_BUILD_VERSION))
+EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7208 = arm64 arm64e armv7 armv7s armv6 armv8
+EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7209 = arm64 arm64e armv7 armv7s armv6 armv8
+EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7300 = arm64 arm64e armv7 armv7s armv6 armv8
+EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7403 = arm64 arm64e armv7 armv7s armv6 armv8
+EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12B45b = arm64 arm64e armv7 armv7s armv6 armv8
+EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12C33 = arm64 arm64e armv7 armv7s armv6 armv8
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Braintree" "${PODS_CONFIGURATION_BUILD_DIR}/Stripe" "${PODS_ROOT}/ElepaySDK" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin" "${PODS_XCFRAMEWORKS_BUILD_DIR}/ElepaySDK" "${PODS_XCFRAMEWORKS_BUILD_DIR}/Elepay_ChinesePayments_Plugin"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "Contacts" -framework "CoreLocation" -framework "ElepaySDK" -framework "Elepay_ChinesePayments_Plugin" -framework "Foundation" -framework "PassKit" -framework "Security" -framework "Stripe" -framework "WebKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -framework "Braintree" -framework "Contacts" -framework "CoreLocation" -framework "ElepaySDK" -framework "Elepay_ChinesePayments_Plugin" -framework "Foundation" -framework "MessageUI" -framework "PassKit" -framework "Security" -framework "Stripe" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit" -weak_framework "Contacts" -weak_framework "SafariServices"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
 USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
