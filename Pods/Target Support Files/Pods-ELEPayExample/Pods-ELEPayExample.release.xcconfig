@@ -1,19 +1,13 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))
 EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
-EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_$(XCODE_PRODUCT_BUILD_VERSION))
-EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7208 = arm64 arm64e armv7 armv7s armv6 armv8
-EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7209 = arm64 arm64e armv7 armv7s armv6 armv8
-EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7300 = arm64 arm64e armv7 armv7s armv6 armv8
-EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12A7403 = arm64 arm64e armv7 armv7s armv6 armv8
-EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12B45b = arm64 arm64e armv7 armv7s armv6 armv8
-EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200__BUILD_12C33 = arm64 arm64e armv7 armv7s armv6 armv8
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Braintree" "${PODS_CONFIGURATION_BUILD_DIR}/Stripe" "${PODS_ROOT}/ElepaySDK" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin" "${PODS_XCFRAMEWORKS_BUILD_DIR}/ElepaySDK" "${PODS_XCFRAMEWORKS_BUILD_DIR}/Elepay_ChinesePayments_Plugin"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Braintree" "${PODS_CONFIGURATION_BUILD_DIR}/Stripe" "${PODS_CONFIGURATION_BUILD_DIR}/StripeCore" "${PODS_ROOT}/ElepaySDK" "${PODS_ROOT}/Elepay_ChinesePayments_Plugin" "${PODS_XCFRAMEWORKS_BUILD_DIR}/ElepaySDK" "${PODS_XCFRAMEWORKS_BUILD_DIR}/Elepay_ChinesePayments_Plugin"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.framework/Headers"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Braintree/BraintreePayPal/PayPalDataCollector/Risk" "${PODS_ROOT}/Stripe/InternalFrameworks"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -framework "Braintree" -framework "Contacts" -framework "CoreLocation" -framework "ElepaySDK" -framework "Elepay_ChinesePayments_Plugin" -framework "Foundation" -framework "MessageUI" -framework "PassKit" -framework "Security" -framework "Stripe" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit" -weak_framework "Contacts" -weak_framework "SafariServices"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/StripeCore/StripeCore.framework/Headers"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) /usr/lib/swift '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" "${PODS_ROOT}/Braintree/BraintreePayPal/PayPalDataCollector/Risk" /usr/lib/swift
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -framework "Braintree" -framework "Contacts" -framework "CoreLocation" -framework "ElepaySDK" -framework "Elepay_ChinesePayments_Plugin" -framework "Foundation" -framework "MessageUI" -framework "PassKit" -framework "Security" -framework "Stripe" -framework "StripeCore" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit" -weak_framework "Contacts" -weak_framework "SafariServices" -weak_framework "SwiftUI"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
