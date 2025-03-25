@@ -110,17 +110,10 @@ extension FinanceType: Hashable {
 extension FinanceType {
   /// return String as  `USD $30.13`
   func display(_ prices: [Float]) -> String {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .decimal
-    formatter.maximumFractionDigits = 2
-    formatter.minimumFractionDigits = 2
-
     let allPrice = prices.reduce(0) { sum, price in
       sum + price / rate
     }
-    let allPriceString = formatter.string(from: NSNumber(value: allPrice)) ?? "\(allPrice)"
-
-    return "\(name) \(symbol)\(allPriceString)"
+    return "\(name) \(symbol)\(Int(allPrice))"
   }
 
   /// return Int as  `30`
