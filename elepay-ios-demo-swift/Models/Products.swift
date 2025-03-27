@@ -24,14 +24,14 @@ struct Product: Hashable {
 
 class Products {
   static let lists: [Product] = [
-    .init(emoji: "🧿", name: "ModaVest", price: 5),
-    .init(emoji: "🧢", name: "LuxStyle", price: 10),
-    .init(emoji: "🧤", name: "CapThread", price: 1),
-    .init(emoji: "🩱", name: "VivaWear", price: 0.01),
-    .init(emoji: "🩲", name: "SilkRoad", price: 6),
-    .init(emoji: "🪡", name: "EchoFit", price: 3),
-    .init(emoji: "🪢", name: "GlamCap", price: 20),
-    .init(emoji: "🩴", name: "UrbTrend", price: 25),
+    .init(emoji: "🧿", name: "ModaVest", price: 0.01),
+    .init(emoji: "🧢", name: "LuxStyle", price: 0.05),
+    .init(emoji: "🧤", name: "CapThread", price: 0.1),
+    .init(emoji: "🩱", name: "VivaWear", price: 0.2),
+    .init(emoji: "🩲", name: "SilkRoad", price: 0.3),
+    .init(emoji: "🪡", name: "EchoFit", price: 0.4),
+    .init(emoji: "🪢", name: "GlamCap", price: 0.5),
+    .init(emoji: "🩴", name: "UrbTrend", price: 1),
     .init(emoji: "🧺", name: "NovaGear", price: 80),
     .init(emoji: "🎽", name: "ZenWard", price: 30),
     .init(emoji: "🧥", name: "CoolStride", price: 20),

@@ -12,6 +12,9 @@ import ElepaySDK
 struct elepay_ios_demo_swiftApp: App {
   init() {
     Elepay.initApp(key: Configs.default.pubKey)
+
+    print("Elepay SDK Version: \(Elepay.sdkVersion)")
+    print("Elepay SDK Build Version: \(Elepay.sdkBuild)")
   }
 
   var body: some Scene {
