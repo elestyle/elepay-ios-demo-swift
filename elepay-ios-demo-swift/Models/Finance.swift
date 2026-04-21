@@ -35,7 +35,7 @@ enum FinanceType {
       return ret
     } else {
       return allCases.first { m in
-        m.name == "USD"
+        m.name == "JPY"
       }!
     }
   }

@@ -82,7 +82,7 @@ xcshareddata/
 
 # CocoaPods
 # We recommend against adding the Pods directory to your .gitignore. However you might want to ignore the local Podspecs repository
-# Pods/
+Pods/
 Pods/Local Podspecs/
 
 # Carthage
@@ -146,3 +146,10 @@ Temporary Items
 *.watch_data
 
 Carthage
+
+# Pods
+Podfile.lock
+
+*RPayKit*
+
+*.xcworkspace/

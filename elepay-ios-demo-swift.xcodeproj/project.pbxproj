@@ -7,25 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3010B852C1B531B00FABC2A /* ElepaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3010B842C1B531B00FABC2A /* ElepaySDK */; };
 		F30549812C1A9136008EDBEC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30549802C1A9136008EDBEC /* Network.swift */; };
 		F30549922C1A921D008EDBEC /* ChargeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30549912C1A9211008EDBEC /* ChargeHandler.swift */; };
 		F30549942C1A931D008EDBEC /* PayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30549932C1A9315008EDBEC /* PayHandler.swift */; };
 		F30549962C1AA044008EDBEC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30549952C1AA03F008EDBEC /* Helper.swift */; };
-		F30BBFDF2C203FCB00B8E8C8 /* ElepaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = F30BBFDE2C203FCB00B8E8C8 /* ElepaySDK */; };
 		F310AC402C182ECD00612F1D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F310AC3F2C182ECD00612F1D /* MainView.swift */; };
 		F3401A492C1A0B880040BC34 /* Finance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3401A482C1A0B6D0040BC34 /* Finance.swift */; };
 		F3401A4B2C1A0E310040BC34 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3401A4A2C1A0E2A0040BC34 /* Configs.swift */; };
 		F3401A4D2C1A12B10040BC34 /* Payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3401A4C2C1A12AA0040BC34 /* Payments.swift */; };
 		F3401A4F2C1A18AE0040BC34 /* TradingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3401A4E2C1A18870040BC34 /* TradingType.swift */; };
 		F3401A602C1A1F940040BC34 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3401A5F2C1A1F900040BC34 /* Card.swift */; };
-		F344A91A2C1B5BD300D43422 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = F344A9192C1B5BD300D43422 /* Stripe */; };
-		F344A91C2C1B5BD300D43422 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = F344A91B2C1B5BD300D43422 /* StripeApplePay */; };
-		F348C1C02C181F1000484E7F /* elepay_ios_demo_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F348C1BF2C181F1000484E7F /* elepay_ios_demo_swiftApp.swift */; };
 		F348C1C42C181F1100484E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F348C1C32C181F1100484E7F /* Assets.xcassets */; };
 		F348C1C82C181F1100484E7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F348C1C72C181F1100484E7F /* Preview Assets.xcassets */; };
 		F34B356D2C1FCCCD00D6B32C /* CheckoutHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B356C2C1FCCC700D6B32C /* CheckoutHandler.swift */; };
-		F34B35732C1FDB1B00D6B32C /* ElepaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = F34B35722C1FDB1B00D6B32C /* ElepaySDK */; };
 		F34B35752C1FDC8D00D6B32C /* SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B35742C1FDC8800D6B32C /* SubViews.swift */; };
 		F35BEB272C1C0B1600A99A3D /* KVMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BEB262C1C0B0F00A99A3D /* KVMap.swift */; };
 		F3ABA4082C196ABF0064F50C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABA4072C196ABF0064F50C /* SettingView.swift */; };
@@ -35,16 +29,19 @@
 		F3ED55A52C1C43E40077C22D /* SourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED55A42C1C43DE0077C22D /* SourceHandler.swift */; };
 		F3ED55A72C1C76C70077C22D /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED55A62C1C76BC0077C22D /* Information.swift */; };
 		F3ED55A92C1C7C4C0077C22D /* InfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED55A82C1C7C4C0077C22D /* InfosView.swift */; };
+		F3FFBEEB2E5852DB00D30F30 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FFBEEA2E5852DB00D30F30 /* main.swift */; };
+		F3FFBEED2E5852E800D30F30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FFBEEC2E5852E800D30F30 /* AppDelegate.swift */; };
+		F3FFBEF02E585D7100D30F30 /* ElepayCheckoutPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F3FFBEEF2E585D7100D30F30 /* ElepayCheckoutPlugin */; };
+		F3FFBEF22E585D7100D30F30 /* ElepayChinesePaymentsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F3FFBEF12E585D7100D30F30 /* ElepayChinesePaymentsPlugin */; };
+		F3FFBEF42E585D7100D30F30 /* ElepaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3FFBEF32E585D7100D30F30 /* ElepaySDK */; };
+		F3FFBEF62E585D7200D30F30 /* ElepayStripePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F3FFBEF52E585D7200D30F30 /* ElepayStripePlugin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1EA63A1958A9793414C3C9BB /* Pods_elepay_ios_demo_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elepay_ios_demo_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30549802C1A9136008EDBEC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		F30549912C1A9211008EDBEC /* ChargeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeHandler.swift; sourceTree = "<group>"; };
 		F30549932C1A9315008EDBEC /* PayHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayHandler.swift; sourceTree = "<group>"; };
 		F30549952C1AA03F008EDBEC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		F30549C92C1AF861008EDBEC /* ElepaySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ElepaySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F30549E92C1AF8F9008EDBEC /* Elepay_StripeApplePay_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Elepay_StripeApplePay_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30BBFE32C20448E00B8E8C8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F310AC3F2C182ECD00612F1D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F3401A482C1A0B6D0040BC34 /* Finance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance.swift; sourceTree = "<group>"; };
@@ -53,7 +50,6 @@
 		F3401A4E2C1A18870040BC34 /* TradingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingType.swift; sourceTree = "<group>"; };
 		F3401A5F2C1A1F900040BC34 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F348C1BC2C181F1000484E7F /* elepay-ios-demo-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "elepay-ios-demo-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F348C1BF2C181F1000484E7F /* elepay_ios_demo_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elepay_ios_demo_swiftApp.swift; sourceTree = "<group>"; };
 		F348C1C32C181F1100484E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F348C1C52C181F1100484E7F /* elepay_ios_demo_swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = elepay_ios_demo_swift.entitlements; sourceTree = "<group>"; };
 		F348C1C72C181F1100484E7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -68,6 +64,8 @@
 		F3ED55A42C1C43DE0077C22D /* SourceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceHandler.swift; sourceTree = "<group>"; };
 		F3ED55A62C1C76BC0077C22D /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		F3ED55A82C1C7C4C0077C22D /* InfosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosView.swift; sourceTree = "<group>"; };
+		F3FFBEEA2E5852DB00D30F30 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F3FFBEEC2E5852E800D30F30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,11 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F344A91C2C1B5BD300D43422 /* StripeApplePay in Frameworks */,
-				F3010B852C1B531B00FABC2A /* ElepaySDK in Frameworks */,
-				F344A91A2C1B5BD300D43422 /* Stripe in Frameworks */,
-				F30BBFDF2C203FCB00B8E8C8 /* ElepaySDK in Frameworks */,
-				F34B35732C1FDB1B00D6B32C /* ElepaySDK in Frameworks */,
+				F3FFBEF62E585D7200D30F30 /* ElepayStripePlugin in Frameworks */,
+				F3FFBEF42E585D7100D30F30 /* ElepaySDK in Frameworks */,
+				F3FFBEF22E585D7100D30F30 /* ElepayChinesePaymentsPlugin in Frameworks */,
+				F3FFBEF02E585D7100D30F30 /* ElepayCheckoutPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,9 +86,6 @@
 		2DDA80CF40954AF2EB376661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F30549E92C1AF8F9008EDBEC /* Elepay_StripeApplePay_Plugin.framework */,
-				F30549C92C1AF861008EDBEC /* ElepaySDK.framework */,
-				1EA63A1958A9793414C3C9BB /* Pods_elepay_ios_demo_swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,7 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				F3ED55A32C1C30A20077C22D /* Info.plist */,
-				F348C1BF2C181F1000484E7F /* elepay_ios_demo_swiftApp.swift */,
+				F3FFBEEA2E5852DB00D30F30 /* main.swift */,
+				F3FFBEEC2E5852E800D30F30 /* AppDelegate.swift */,
 				F30549952C1AA03F008EDBEC /* Helper.swift */,
 				F35BEB262C1C0B0F00A99A3D /* KVMap.swift */,
 				F305497F2C1A9119008EDBEC /* Api */,
@@ -186,13 +181,6 @@
 			dependencies = (
 			);
 			name = "elepay-ios-demo-swift";
-			packageProductDependencies = (
-				F3010B842C1B531B00FABC2A /* ElepaySDK */,
-				F344A9192C1B5BD300D43422 /* Stripe */,
-				F344A91B2C1B5BD300D43422 /* StripeApplePay */,
-				F34B35722C1FDB1B00D6B32C /* ElepaySDK */,
-				F30BBFDE2C203FCB00B8E8C8 /* ElepaySDK */,
-			);
 			productName = "elepay-ios-demo-swift";
 			productReference = F348C1BC2C181F1000484E7F /* elepay-ios-demo-swift.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +197,7 @@
 				TargetAttributes = {
 					F348C1BB2C181F1000484E7F = {
 						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 2600;
 					};
 				};
 			};
@@ -222,8 +211,7 @@
 			);
 			mainGroup = F348C1B32C181F1000484E7F;
 			packageReferences = (
-				F344A9182C1B5BD300D43422 /* XCRemoteSwiftPackageReference "stripe-ios" */,
-				F30BBFDD2C203FCB00B8E8C8 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */,
+				F3FFBEEE2E585D7100D30F30 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */,
 			);
 			productRefGroup = F348C1BD2C181F1000484E7F /* Products */;
 			projectDirPath = "";
@@ -269,9 +257,10 @@
 				F3401A4B2C1A0E310040BC34 /* Configs.swift in Sources */,
 				F30549922C1A921D008EDBEC /* ChargeHandler.swift in Sources */,
 				F3401A4F2C1A18AE0040BC34 /* TradingType.swift in Sources */,
+				F3FFBEEB2E5852DB00D30F30 /* main.swift in Sources */,
 				F3ABA4192C19E11C0064F50C /* PaymentView.swift in Sources */,
 				F3401A492C1A0B880040BC34 /* Finance.swift in Sources */,
-				F348C1C02C181F1000484E7F /* elepay_ios_demo_swiftApp.swift in Sources */,
+				F3FFBEED2E5852E800D30F30 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,15 +390,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"elepay-ios-demo-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = ZG3FDF8RBQ;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_DEBUG_DYLIB = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "elepay-ios-demo-swift/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = NO;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = NO;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
@@ -419,8 +409,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elestyle.elepay-ios-demo";
@@ -445,15 +437,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"elepay-ios-demo-swift/Preview Content\"";
-				DEVELOPMENT_TEAM = ZG3FDF8RBQ;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_DEBUG_DYLIB = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "elepay-ios-demo-swift/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = NO;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = NO;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
@@ -463,8 +456,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elestyle.elepay-ios-demo";
@@ -504,47 +499,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F30BBFDD2C203FCB00B8E8C8 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */ = {
+		F3FFBEEE2E585D7100D30F30 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/elestyle/elepay-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.3.1;
-			};
-		};
-		F344A9182C1B5BD300D43422 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stripe/stripe-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 22.8.4;
+				minimumVersion = 5.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F3010B842C1B531B00FABC2A /* ElepaySDK */ = {
+		F3FFBEEF2E585D7100D30F30 /* ElepayCheckoutPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = F3FFBEEE2E585D7100D30F30 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */;
+			productName = ElepayCheckoutPlugin;
+		};
+		F3FFBEF12E585D7100D30F30 /* ElepayChinesePaymentsPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3FFBEEE2E585D7100D30F30 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */;
+			productName = ElepayChinesePaymentsPlugin;
+		};
+		F3FFBEF32E585D7100D30F30 /* ElepaySDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3FFBEEE2E585D7100D30F30 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */;
 			productName = ElepaySDK;
 		};
-		F30BBFDE2C203FCB00B8E8C8 /* ElepaySDK */ = {
+		F3FFBEF52E585D7200D30F30 /* ElepayStripePlugin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F30BBFDD2C203FCB00B8E8C8 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */;
-			productName = ElepaySDK;
-		};
-		F344A9192C1B5BD300D43422 /* Stripe */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F344A9182C1B5BD300D43422 /* XCRemoteSwiftPackageReference "stripe-ios" */;
-			productName = Stripe;
-		};
-		F344A91B2C1B5BD300D43422 /* StripeApplePay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F344A9182C1B5BD300D43422 /* XCRemoteSwiftPackageReference "stripe-ios" */;
-			productName = StripeApplePay;
-		};
-		F34B35722C1FDB1B00D6B32C /* ElepaySDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ElepaySDK;
+			package = F3FFBEEE2E585D7100D30F30 /* XCRemoteSwiftPackageReference "elepay-ios-sdk" */;
+			productName = ElepayStripePlugin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
